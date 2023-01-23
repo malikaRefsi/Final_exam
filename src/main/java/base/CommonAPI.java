@@ -99,6 +99,16 @@ public class CommonAPI {
 
     /**************************************************************************************/
     /*********************************************************************************/
+    public void selectOptionFromDropdownF(WebElement dropdown, String option) {
+        Select select = new Select(dropdown);//to put in drop dwon
+        try {
+            select.selectByVisibleText(option);
+        } catch (Exception e) {
+            select.selectByValue(option);
+        }
+    }
+
+
     public void FrameSwitchUsingIndex(WebDriver driver, int index) {
         driver.switchTo().frame(index);//since we have only one Iframe
         // LOG.info("Switch to Iframe success");

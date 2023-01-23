@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="saucedemo test">
+    <parameter name="browserName" value="chrome"></parameter>
+    <parameter name="url" value="https://www.saucedemo.com"></parameter>
+<test name="saucedemo test">
+    <classes>
+
+<!--         <class name="sauceDemoTest.LogOut"></class>
+      <class name="sauceDemoTest.Cart"></class>
+        <class name="sauceDemoTest.Register"></class>
+        <class name="sauceDemoTest.DropDown"></class>
+        <class name="sauceDemoTest.About"></class>
+        <class name="sauceDemoTest.ResetAppState"></class>
+         <class name="sauceDemoTest.HomePage"></class>
+        <class name="sauceDemoTest.AllItems"></class>-->
+
+        <class name="sauceDemoTest.DropDown"></class>
+
+    </classes>
+</test>
+
+</suite>
