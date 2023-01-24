@@ -2519,3 +2519,23 @@
 13:42:00.956 [main] INFO  sauceDemoPages.HomePage - password  sent success
 13:42:01.044 [main] INFO  sauceDemoPages.HomePage - click login button success
 13:42:11.143 [main] INFO  sauceDemoPages.HomePage - select from dropdown success
+13:57:00.257 [main] INFO  sauceDemoTest.DropDown - land to saucedemo success
+13:57:00.356 [main] INFO  sauceDemoPages.HomePage - username sent success
+13:57:00.406 [main] INFO  sauceDemoPages.HomePage - password  sent success
+13:57:00.490 [main] INFO  sauceDemoPages.HomePage - click login button success
+13:57:10.672 [main] INFO  sauceDemoPages.HomePage - select from dropdown success
+13:57:16.141 [main] INFO  sauceDemoTest.DropDown - land to saucedemo success
+13:57:16.225 [main] INFO  sauceDemoPages.HomePage - username sent success
+13:57:16.287 [main] INFO  sauceDemoPages.HomePage - password  sent success
+13:57:16.362 [main] INFO  sauceDemoPages.HomePage - click login button success
+13:57:26.535 [main] INFO  sauceDemoPages.HomePage - select from dropdown success
+13:57:31.877 [main] INFO  sauceDemoTest.DropDown - land to saucedemo success
+13:57:31.937 [main] INFO  sauceDemoPages.HomePage - username sent success
+13:57:31.983 [main] INFO  sauceDemoPages.HomePage - password  sent success
+13:57:32.063 [main] INFO  sauceDemoPages.HomePage - click login button success
+13:57:42.225 [main] INFO  sauceDemoPages.HomePage - select from dropdown success
+13:57:47.592 [main] INFO  sauceDemoTest.DropDown - land to saucedemo success
+13:57:47.661 [main] INFO  sauceDemoPages.HomePage - username sent success
+13:57:47.719 [main] INFO  sauceDemoPages.HomePage - password  sent success
+13:57:47.807 [main] INFO  sauceDemoPages.HomePage - click login button success
+13:57:57.940 [main] INFO  sauceDemoPages.HomePage - select from dropdown success
