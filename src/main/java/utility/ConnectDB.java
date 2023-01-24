@@ -2,6 +2,7 @@ package utility;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,8 +15,8 @@ public class ConnectDB {
     public static ResultSet resultSet = null;
 
     public static Connection connectToSqlDatabase() {
-//        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver.mr");
-//        String url = Utility.getProperties().getProperty("MYSQLJDBC.url.mr");
+//        MysqlxDatatypes.Scalar.String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver.mr");
+//        MysqlxDatatypes.Scalar.String url = Utility.getProperties().getProperty("MYSQLJDBC.url.mr");
 //        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName.mr");
 //        String password = Utility.getProperties().getProperty("MYSQLJDBC.password.mr");
         String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver.nop");
