@@ -2,12 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="orangeHRM tests">
     <parameter name="browserName" value="chrome"></parameter>
-    <!--    <parameter name="url" value="https://opensource-demo.orangehrmlive.com"></parameter>-->
+        <parameter name="url" value="https://opensource-demo.orangehrmlive.com"></parameter>
 
 
     <test name="orangeHRM tests">
         <classes>
-            <!--                <class name="test.TestLogin"></class>-->
+<!--                            <class name="com.orangeHRM.test.TestLogin"></class>-->
+            <class name="com.orangeHRM.test.TestMenuPimEmployeeList"></class>
+<!--            <class name="com.orangeHRM.test.TestMenuAdminNationality"></class>-->
+<!--            <class name="com.orangeHRM.test.TestLogOut"></class>-->
+<!--            <class name="com.orangeHRM.test.TestLeaveList"></class>-->
+
+
 
 
 

@@ -89,7 +89,7 @@ public class CommonAPI {
     }
 
     public void selectOptionFromDropdown(WebElement dropdown, String option) {
-        Select select = new Select(dropdown);//to put in drop dwon
+        Select select = new Select(dropdown);//to put in drop dowbn
         try {
             select.selectByVisibleText(option);
         } catch (Exception e) {
@@ -122,19 +122,6 @@ public class CommonAPI {
     public Boolean verifyCheckBoxIfSelected(WebElement element) {
         return element.isSelected();
     }
-
-
-//    public void verifyCheckBoxIfSelectedAmongSetOfExistingOptions(WebElement optionToSelect,WebElement option1,WebElement  option2,WebElement option3) throws InterruptedException {
-//        clickOn(optionToSelect);
-//        //optionToSelect.click();
-//        Thread.sleep(3000);
-//        LOG.info(verifyCheckBoxIfSelected(  option1));
-//        LOG.info(verifyCheckBoxIfSelected( option2));
-//        LOG.info(verifyCheckBoxIfSelected( option3));
-//
-//
-//    }
-
     public Boolean checkIfElementIsDisplayed(WebElement element) {
         return element.isDisplayed();
     }
@@ -169,8 +156,12 @@ public class CommonAPI {
 
         Thread.sleep(3000);
     }
+    public void scrollToElementUsingActionsClass(WebDriver driver, WebElement element) throws InterruptedException {
+        Actions ac=new Actions(driver);
+        ac.scrollToElement(element).perform();
+    }
 
-    public void selectAnOptionFromDropDown(WebDriver driver, WebElement element, String option) throws Exception {
+    public void selectAnOptionFromDropDown(WebElement element, String option) throws Exception {
         Select select = new Select(element);
         select.selectByVisibleText(option);
         Thread.sleep(3000);
@@ -201,5 +192,46 @@ public class CommonAPI {
         String parent = itr.next();
         String newWin = itr.next();
         driver.switchTo().window(parent);//switch back
+    }
+    /*********************************************************************************/
+    /**********************************************************************************/
+    public boolean checkIfStringExistInElementList(List<WebElement> elements,String str){
+        boolean status=false;
+        for (WebElement ele:elements){
+            String value=ele.getText();
+            if(value.contains(str)){
+                status=true;
+                break;
+            }
+        }
+        return status;
+    }
+
+    public void clickONAnElementWhichContainSpecificTextAmongElementsList(List<WebElement> elements,String str){
+
+        for (WebElement ele:elements){
+            String value=ele.getText();
+            if(value.contains(str)){
+                clickOn(ele);
+                break;
+            }
+        }
+    }
+
+    public int numberOfElementInList(List<WebElement> elementsList){
+        return elementsList.size();
+    }
+    public void clearTextInTextBoxField(WebElement element){
+        element.clear();
+    }
+    public void clearTextInTextBoxFieldUsingActionClass(WebDriver driver,WebElement element) throws InterruptedException {
+
+        Actions ac=new Actions(driver);
+        ac.moveToElement(element).doubleClick().click().sendKeys(Keys.BACK_SPACE).build().perform();
+//        Thread.sleep(1000);
+    }
+    public void typeTextUsingJavaScript(WebDriver driver,WebElement element,String str){
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+        js.executeScript("arguments[0].value="+str,element);
     }
 }

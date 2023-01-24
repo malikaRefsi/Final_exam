@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Amazon Test">
+<suite name="orangeHRM tests">
     <parameter name="browserName" value="chrome"></parameter>
-    <!--    <parameter name="url" value="https://www.amazon.com/"></parameter>-->
-    <!--    <parameter name="url" value="https://jqueryui.com/droppable/"></parameter>-->
-    <parameter name="url" value="https://rahulshettyacademy.com/AutomationPractice/"></parameter>
-    <!--    <parameter name="url" value="http://www.qaclickacademy.com/"></parameter>-->
-    <!--    for the new window-->
+        <parameter name="url" value="https://opensource-demo.orangehrmlive.com"></parameter>
+
 
     <test name="orangeHRM tests">
         <classes>
-            <!--                <class name="test.TestLogin"></class>-->
-            <!--                <class name="test.TestSearch"></class>-->
-            <!--                     <class name="practice.DragAndDrop"></class>-->
-            <!--                <class name="practice.HandleFrame"></class>-->
-            <!--                <class name="practice.HandleFrame"></class>-->
-            <!--                <class name="practice.CheckBox"></class>-->
-            <!--                <class name="practice.ElemmentIsDesplayed"></class>-->
-            <!--                <class name="practice.GetTextFromTable"></class>-->
-            <!--                <class name="practice.HandleAllert"></class>-->
-            <!--                <class name="practice.RadioButton"></class>-->
-            <!--                <class name="practice.ScrollToElement"></class>-->
-            <!--                <class name="practice.StaticDropdown"></class>-->
-            <!--                <class name="practice.SuggetionDropdown_dynamicDropDown"></class>-->
-<!--            <class name="practice.HandleNewWindow"></class>-->
+<!--                            <class name="com.orangeHRM.test.TestLogin"></class>-->
+            <class name="com.orangeHRM.test.TestMenuPimEmployeeList"></class>
+<!--            <class name="com.orangeHRM.test.TestMenuAdminNationality"></class>-->
+<!--            <class name="com.orangeHRM.test.TestLogOut"></class>-->
+<!--            <class name="com.orangeHRM.test.TestLeaveList"></class>-->
 
 
 

@@ -14,10 +14,10 @@ public class ConnectDB {
     public static ResultSet resultSet = null;
 
     public static Connection connectToSqlDatabase() {
-        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver");
-        String url = Utility.getProperties().getProperty("MYSQLJDBC.url");
-        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName");
-        String password = Utility.getProperties().getProperty("MYSQLJDBC.password");
+        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver.mr");
+        String url = Utility.getProperties().getProperty("MYSQLJDBC.url.mr");
+        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName.mr");
+        String password = Utility.getProperties().getProperty("MYSQLJDBC.password.mr");
         try {
             Class.forName(driverClass);
             connect = DriverManager.getConnection(url,userName,password);
