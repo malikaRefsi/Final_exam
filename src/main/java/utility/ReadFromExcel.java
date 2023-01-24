@@ -68,7 +68,8 @@ public class ReadFromExcel {
 
     public static void main(String[] args) throws IOException {
 //to use this class
-        ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\Malika Refsi\\IdeaProjects\\AutomationFrameWork\\data\\titles.xlsx","sheet1");
+//        ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\Malika Refsi\\IdeaProjects\\AutomationFrameWork\\data\\titles.xlsx","sheet1");
+        ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\nabil\\IdeaProjects\\projectframework\\data\\titles.xlsx","sheetcred");
         System.out.println(readFromExcel.getCellValueForGivenHeaderAndKey("value","home page title"));
 
     }
