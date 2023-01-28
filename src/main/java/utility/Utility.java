@@ -10,7 +10,8 @@ public class Utility {
     public static Properties getProperties(){// THIS
         Properties prop = new Properties();
         try {
-            InputStream inputStream = new FileInputStream("C:\\Users\\nabil\\IdeaProjects\\projectframework\\config.properties");
+            //InputStream inputStream = new FileInputStream("C:\\Users\\nabil\\IdeaProjects\\projectframework\\config.properties");
+            InputStream inputStream = new FileInputStream("C:\\Users\\12016\\eclipse-workspace\\Final_exam\\config.properties");
             prop.load(inputStream);//load the content of the file in the object prop
             inputStream.close();
         } catch (IOException e) {

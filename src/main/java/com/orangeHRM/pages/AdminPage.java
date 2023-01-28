@@ -197,6 +197,7 @@ public class AdminPage extends CommonAPI {
 //        typeTextUsingJavaScript(driver,nameField,str);
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("arguments[0].value="+str,nameField);
+
         Thread.sleep(2000);
         clickOn(saveButton);
         Thread.sleep(2000);

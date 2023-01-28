@@ -19,10 +19,16 @@ public class ConnectDB {
 //        MysqlxDatatypes.Scalar.String url = Utility.getProperties().getProperty("MYSQLJDBC.url.mr");
 //        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName.mr");
 //        String password = Utility.getProperties().getProperty("MYSQLJDBC.password.mr");
-        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver.nop");
-        String url = Utility.getProperties().getProperty("MYSQLJDBC.url.nop");
-        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName.nop");
-        String password = Utility.getProperties().getProperty("MYSQLJDBC.password.nop");
+//        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver.nop");
+//        String url = Utility.getProperties().getProperty("MYSQLJDBC.url.nop");
+//        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName.nop");
+//        String password = Utility.getProperties().getProperty("MYSQLJDBC.password.nop");
+        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver");
+        String url = Utility.getProperties().getProperty("MYSQLJDBC.url");
+        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName");
+        String password = Utility.getProperties().getProperty("MYSQLJDBC.password");
+
+
         try {
             Class.forName(driverClass);
             connect = DriverManager.getConnection(url,userName,password);
@@ -59,7 +65,7 @@ public class ConnectDB {
 
     public static void main(String[] args) throws SQLException {
         // the following: in case we want to retrieve an email
-        List<String> emails = getTableColumnData("select * from credentials;","email");
+        List<String> emails = getTableColumnData("select * from cred;","email");
         System.out.println(emails.get(0));
     }
 }
