@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="orangeHRM tests">
+    <parameter name="browserName" value="chrome"></parameter>
+
+    <parameter name="useCloudEnv" value="true"></parameter>
+    <parameter name="os" value="windows"></parameter>
+    <parameter name="osVersion" value="11"></parameter>
+    <parameter name="browserVersion" value="100"></parameter>
+    <parameter name="envName" value="browserstack"></parameter>
+
+
+        <parameter name="url" value="https://opensource-demo.orangehrmlive.com"></parameter>
+
+
+    <test name="orangeHRM tests">
+<!--        <groups>-->
+<!--            <dependencies>-->
+<!--                <group name="group1" depends-on="" />-->
+<!--&lt;!&ndash;                <group name="z" depends-on="c" />&ndash;&gt;-->
+<!--            </dependencies>-->
+<!--        </groups>-->
+
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name ="grp1"/>-->
+<!--            </run>-->
+<!--        </groups>-->
+        <classes>
+                            <class name="com.orangeHRM.test.TestLogin"></class>
+<!--            <class name="com.orangeHRM.test.TestMenuPimEmployeeList"></class>-->
+<!--            <class name="com.orangeHRM.test.TestMenuAdminNationality"></class>-->
+<!--            <class name="com.orangeHRM.test.TestLogOut"></class>-->
+<!--            <class name="com.orangeHRM.test.TestLeaveList"></class>-->
+
+
+
+
+
+        </classes>
+    </test>
+</suite>

@@ -1,17 +1,19 @@
 package utility;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Base64;
 import java.util.Properties;
-
 public class Utility {
-    public static Properties getProperties(){// THIS
+
+    public static String path = System.getProperty("user.dir");
+    public static Properties getProperties(){
         Properties prop = new Properties();
         try {
-            InputStream inputStream = new FileInputStream("C:\\Users\\nabil\\IdeaProjects\\projectframework\\config.properties");
-            prop.load(inputStream);//load the content of the file in the object prop
+            InputStream inputStream = new FileInputStream(path + File.separator +"config.properties");
+            prop.load(inputStream);
             inputStream.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -23,13 +25,16 @@ public class Utility {
         return new String(decodeBytes);
     }
 
-    public static void main(String[] args) { //at this level we should encode each of the credentials we have before
-        //we proceed in decoding
-        String toEncode = "savcKMWcbFXKst8Ysv6H";
-        String encoded = Base64.getEncoder().encodeToString(toEncode.getBytes());
-        System.out.println(encoded);
+    public static void main(String[] args) {
+//    //     we proceed in decoding
+//        String toEncode = "savcKMWcbFXKst8Ysv6H";
+//        String encoded = Base64.getEncoder().encodeToString(toEncode.getBytes());
+//        System.out.println(encoded);
+//        System.out.println(decode(encoded));
 
-        System.out.println(decode(encoded));
+        String sep = File.separator;
+        String path = System.getProperty("user.dir");
+        System.out.println(path);
     }
-
 }
+

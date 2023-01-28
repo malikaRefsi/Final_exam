@@ -44,7 +44,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         loginPage.login(userName,password);
         piMpage.searchEmployeeByEnteringTheSupervisorName("Linda Anderson");
     }
-    @Test
+//    @Test
     public void searchEmployeeByEnteringTheEmploymentStatusTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -74,7 +74,8 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         loginPage.login(userName,password);
         piMpage.searchEmployeeByEnteringTheSubUnit("Quality Assurance");
     }
-//    @Test
+
+    @Test
     public void searchEmployeeByEnteringTheIncludeTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -84,7 +85,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         loginPage.login(userName,password);
         piMpage.searchEmployeeByEnteringTheInclude("Current Employees Only");
     }
-    @Test
+//    @Test
     public void searchEmployeeByEnteringTheIncludeAndSubUnitTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -94,7 +95,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         loginPage.login(userName,password);
         piMpage.searchEmployeeByEnteringTheIncludeAndSubUnit("Current Employees Only","Quality Assurance");
     }
-    @Test
+//    @Test
     public void searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -104,7 +105,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         loginPage.login(userName,password);
         piMpage.searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitle("Current Employees Only","Quality Assurance","Account Assistant");
     }
-    @Test
+//    @Test
     public void searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleAndEmploymentStatusTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -134,7 +135,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
 
       }
 
-   // @Test
+//    @Test
     public void TestDeleteUserUsingTrashLogo() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -155,7 +156,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         Thread.sleep(5000);
         LOG.info("The number of the users in Employee list after deleting: "+ piMpage.numberOfEmployeeInList());
     }
-   // @Test
+//    @Test
     public void TestDeleteUserUsingDeleteSelectedButton() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -215,7 +216,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
 
 
     }
-//    @Test
+//    @Test // including edite nick name,SSN and SIN numbers
     public void editePersonalDetailsOfAnEmployeeTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());

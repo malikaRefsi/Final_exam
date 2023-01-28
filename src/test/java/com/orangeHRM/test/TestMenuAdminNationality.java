@@ -7,20 +7,34 @@ import com.orangeHRM.pages.AdminPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utility.ConnectDB;
 
 public class TestMenuAdminNationality extends CommonAPI {
 
     Logger LOG = LogManager.getLogger(TestMenuAdminNationality.class.getName());
-//    @Test
+   // we can use this before method since we need each time we run these test to login
+//    @BeforeMethod
+//    public void login() {
+//        LoginPage loginPage=new LoginPage(getDriver());
+//        HomePage homePage=new HomePage(getDriver());
+//        Assert.assertTrue(loginPage.checkIfLoginLogoIsDisplayed());
+//        LOG.info("we are in the login page ");
+//        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
+//        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
+//        loginPage.login(userName,password);
+//        Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
+//        LOG.info("we are successfully logged in ");
+//    }
+    @Test
     public void addNationalityTest() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage=new HomePage(getDriver());
+//        LoginPage loginPage = new LoginPage(getDriver());
+//        HomePage homePage=new HomePage(getDriver());
         AdminPage nationalityPage = new AdminPage(getDriver());
-        String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
-        String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
-        loginPage.login(userName, password);
+//        String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
+//        String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
+//        loginPage.login(userName, password);
 
         nationalityPage.addNationality("Algerian3");
 
@@ -105,7 +119,7 @@ public class TestMenuAdminNationality extends CommonAPI {
         nationalityPage.deleteAllNationalitiesUsingDeleteSelectedButton();
 
     }
-    @Test
+//    @Test
     public void TestEditeNationality() throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());

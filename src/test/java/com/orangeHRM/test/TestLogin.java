@@ -4,17 +4,18 @@ import base.CommonAPI;
 import com.orangeHRM.pages.LoginPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.orangeHRM.pages.HomePage;
 import utility.ConnectDB;
 
+
 public class TestLogin extends CommonAPI {
 
     Logger LOG = LogManager.getLogger( TestLogin.class.getName());
-  //  @Test
+
+    @Test (groups={"grp1"})
     public void loginWithValidCredentials() {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -28,7 +29,8 @@ public class TestLogin extends CommonAPI {
 
 
     }
-//    @Test
+    @Test (groups={"grp1"})
+
     public void loginWithInvalidCredentials() {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -44,7 +46,7 @@ public class TestLogin extends CommonAPI {
 
     }
 
-//    @Test
+    @Test
     public void forgotAndResetPasswordTest() {
         LoginPage loginPage=new LoginPage(getDriver());
         Assert.assertTrue(loginPage.checkIfLoginLogoIsDisplayed());
