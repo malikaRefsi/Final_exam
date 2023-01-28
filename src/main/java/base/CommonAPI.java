@@ -300,6 +300,14 @@ public class CommonAPI {
     }
     /*********************************************************************************/
     /**********************************************************************************/
+    public void selectOptionFromDropdownF(WebElement dropdown, String option) {
+        Select select = new Select(dropdown);//to put in drop dwon
+        try {
+            select.selectByVisibleText(option);
+        } catch (Exception e) {
+            select.selectByValue(option);
+        }
+    }
     public boolean checkIfStringExistInElementList(List<WebElement> elements,String str){
         boolean status=false;
         for (WebElement ele:elements){

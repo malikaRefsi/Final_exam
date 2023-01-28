@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utility.ConnectDB;
 
-public class TestLeaveList extends CommonAPI {
+public class  TestLeaveList extends CommonAPI {
 
     Logger LOG = LogManager.getLogger( TestLeaveList.class.getName());
     @Test

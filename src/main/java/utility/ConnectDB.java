@@ -13,6 +13,7 @@ public class ConnectDB {
     public static ResultSet resultSet = null;
 
     public static Connection connectToSqlDatabase() {
+<<<<<<< HEAD
 //        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver");
 //        String url = Utility.getProperties().getProperty("MYSQLJDBC.url");
 //        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName");
@@ -24,6 +25,22 @@ public class ConnectDB {
         String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName.mr");
         String password = Utility.getProperties().getProperty("MYSQLJDBC.password.mr");
 
+=======
+//        MysqlxDatatypes.Scalar.String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver.mr");
+//        MysqlxDatatypes.Scalar.String url = Utility.getProperties().getProperty("MYSQLJDBC.url.mr");
+//        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName.mr");
+//        String password = Utility.getProperties().getProperty("MYSQLJDBC.password.mr");
+//        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver.nop");
+//        String url = Utility.getProperties().getProperty("MYSQLJDBC.url.nop");
+//        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName.nop");
+//        String password = Utility.getProperties().getProperty("MYSQLJDBC.password.nop");
+        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver");
+        String url = Utility.getProperties().getProperty("MYSQLJDBC.url");
+        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName");
+        String password = Utility.getProperties().getProperty("MYSQLJDBC.password");
+
+
+>>>>>>> dc8a0364be15c0eb9648b87446b3a49672b519d1
         try {
             Class.forName(driverClass);
             connect = DriverManager.getConnection(url,userName,password);
@@ -60,7 +77,7 @@ public class ConnectDB {
 
     public static void main(String[] args) throws SQLException {
         // the following: in case we want to retrieve an email
-        List<String> emails = getTableColumnData("select * from credentials;","email");
+        List<String> emails = getTableColumnData("select * from cred;","email");
         System.out.println(emails.get(0));
     }
 }
