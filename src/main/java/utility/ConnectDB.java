@@ -13,19 +13,7 @@ public class ConnectDB {
     public static ResultSet resultSet = null;
 
     public static Connection connectToSqlDatabase() {
-<<<<<<< HEAD
-//        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver");
-//        String url = Utility.getProperties().getProperty("MYSQLJDBC.url");
-//        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName");
-//        String password = Utility.getProperties().getProperty("MYSQLJDBC.password");
 
-
-        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver.mr");
-        String url = Utility.getProperties().getProperty("MYSQLJDBC.url.mr");
-        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName.mr");
-        String password = Utility.getProperties().getProperty("MYSQLJDBC.password.mr");
-
-=======
 //        MysqlxDatatypes.Scalar.String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver.mr");
 //        MysqlxDatatypes.Scalar.String url = Utility.getProperties().getProperty("MYSQLJDBC.url.mr");
 //        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName.mr");
@@ -40,7 +28,7 @@ public class ConnectDB {
         String password = Utility.getProperties().getProperty("MYSQLJDBC.password");
 
 
->>>>>>> dc8a0364be15c0eb9648b87446b3a49672b519d1
+
         try {
             Class.forName(driverClass);
             connect = DriverManager.getConnection(url,userName,password);

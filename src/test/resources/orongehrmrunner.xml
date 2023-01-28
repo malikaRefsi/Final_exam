@@ -3,7 +3,7 @@
 <suite name="orangeHRM tests">
     <parameter name="browserName" value="chrome"></parameter>
 
-    <parameter name="useCloudEnv" value="true"></parameter>
+    <parameter name="useCloudEnv" value="false"></parameter>
     <parameter name="os" value="windows"></parameter>
     <parameter name="osVersion" value="11"></parameter>
     <parameter name="browserVersion" value="100"></parameter>
