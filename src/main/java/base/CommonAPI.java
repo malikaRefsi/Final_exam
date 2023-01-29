@@ -43,8 +43,8 @@ public class CommonAPI {
     String maximizeBrowser = Utility.getProperties().getProperty("browser.maximize", "true");
     String implicitWait = Utility.getProperties().getProperty("implicit.wait", "10");//take this value by default if we did not include the implicit.wait in properties
     /********************************************************/
-    String username=Utility.decode(Utility.getProperties().getProperty("browserstack-userName.mr"));
-    String password =Utility.decode(Utility.getProperties().getProperty("browserstack-passWord.mr"));
+    String username=Utility.decode(Utility.getProperties().getProperty("browserstack.userName.mr"));
+    String password =Utility.decode(Utility.getProperties().getProperty("browserstack.passWord.mr"));
 
 
     public WebDriver driver;//created outside to make it global
