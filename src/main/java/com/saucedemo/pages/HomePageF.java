@@ -24,6 +24,14 @@ public class HomePageF extends CommonAPI {
 
     @FindBy(css = "#login-button")
     WebElement loginButton;
+    @FindBy(xpath = "//div[@class='login_logo']")
+    WebElement logoSwgLabs;
+
+    @FindBy(xpath = " //span[@class='title']")
+    WebElement productsHeader;
+
+    //span[@class='title']
+
     //02
     @FindBy(xpath = "//h3[@data-test='error']")
     WebElement errormessage;
@@ -37,6 +45,19 @@ public class HomePageF extends CommonAPI {
 
     @FindBy(xpath = "//select[@class='product_sort_container']")
     WebElement dropDown;
+
+    @FindBy(xpath = "//span[text()='Name (A to Z)']")
+    WebElement dropDownAToZ;
+    @FindBy(xpath = "//span[text()='Name (Z to A)']")
+    WebElement dropDownZToA;
+    @FindBy(xpath = "//span[text()='Price (low to high)']")
+    WebElement dropDownLowToHigh;
+    @FindBy(xpath = "//span[text()='Price (high to low)']")
+    WebElement dropDownHighToLow;
+
+
+
+
 
     @FindBy(css = "#logout_sidebar_link")
     WebElement logOut;
@@ -74,6 +95,16 @@ public class HomePageF extends CommonAPI {
         LOG.info("click login button success");
     }
 
+    public boolean checkIfLogoIsDisplayed() {
+        return checkIfElementIsDisplayed(logoSwgLabs);
+    }
+
+    public boolean checkIfProductsIsDisplayed() {
+        return checkIfElementIsDisplayed(productsHeader);
+    }
+
+
+
 
     public String error() {
         return getTextFromElement(errormessage);
@@ -91,6 +122,19 @@ public class HomePageF extends CommonAPI {
     public void clickOnLogOut() {
         clickOn(logOut);
         LOG.info("click on log out button success");
+    }
+
+    public boolean checkIfoptionAToZIsSelected() {
+        return checkIfElementIsDisplayed(dropDownAToZ);
+    }
+    public boolean checkIfoptionZToAIsSelected() {
+        return checkIfElementIsDisplayed(dropDownZToA);
+    }
+    public boolean checkIfoptionlowToHighIsSelected() {
+        return checkIfElementIsDisplayed(dropDownLowToHigh);
+    }
+    public boolean checkIfoptionHighToLowIsSelected() {
+        return checkIfElementIsDisplayed(dropDownHighToLow);
     }
 
     public String checkOutValidation() {

@@ -66,12 +66,18 @@ public class ReadFromExcel {
         }
         return data;
     }
-
-    public static void main(MysqlxDatatypes.Scalar.String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
+        ReadFromExcel read = new ReadFromExcel("C:\\Users\\12016\\eclipse-workspace\\Final_exam\\data\\titles.xlsx", "sheetN1");
+        read.getCellValueForGivenHeaderAndKey("value","homepage title");
+    }*/
+    public static void main(String[] args) throws IOException {
 //to use this class
         ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\Malika Refsi\\IdeaProjects\\AutomationFrameWork\\data\\titles.xlsx","sheet1");
-//        ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\nabil\\IdeaProjects\\projectframework\\data\\titles.xlsx","sheetcred");
+       // ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\nabil\\IdeaProjects\\projectframework\\data\\titles.xlsx","sheetcred");
+        //ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\12016\\eclipse-workspace\\Final_exam\\data\\titles.xlsx","test data");
+        //System.out.println(readFromExcel.getCellValueForGivenHeaderAndKey("key","homepage title"));
         System.out.println(readFromExcel.getCellValueForGivenHeaderAndKey("value","home page title"));
 
     }
+
 }

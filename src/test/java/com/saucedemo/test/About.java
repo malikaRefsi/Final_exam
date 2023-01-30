@@ -26,10 +26,15 @@ public class About extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
         aboutPages.clickOnmenuButton();
         aboutPages.clickOnCrossMenuButton();
     }
@@ -45,10 +50,16 @@ public class About extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
+
+
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
 
         aboutPages.clickOnmenuButton();
         aboutPages.clickOnAboutButton();
@@ -72,10 +83,16 @@ public class About extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
+
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
         aboutPages.clickOnmenuButton();
         aboutPages.clickOnAboutButton();
         aboutPages.clickOnSearch();
@@ -93,10 +110,15 @@ public class About extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
+
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
 
         aboutPages.clickOnmenuButton();
         aboutPages.clickOnAboutButton();
@@ -104,6 +126,34 @@ public class About extends CommonAPI {
         aboutPages.cLickToSeeVideo();
         aboutPages.clickOnPlay();
 
+    }
+
+    @Test
+    public void HoverOverCampany () throws InterruptedException {
+        HomePageF homePageF = new HomePageF(getDriver());
+        CartPage cartPage = new CartPage(getDriver());
+        AboutPages aboutPages = new AboutPages(getDriver());
+        String username = ConnectDB.getTableColumnData("select * from cred", "username").get(2);
+        String password = ConnectDB.getTableColumnData("select * from cred", "password").get(2);
+        String expectedTitle = "Swag Labs";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
+
+
+        homePageF.typeusername(username);
+        homePageF.typepassword(password);
+        homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
+        aboutPages.clickOnmenuButton();
+        aboutPages.clickOnAboutButton();
+        Thread.sleep(2000);
+        aboutPages.hoverOverComp(getDriver());
+        Thread.sleep(2000);
     }
 
 }

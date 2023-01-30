@@ -29,7 +29,7 @@ public class AboutPages extends CommonAPI {
     @FindBy(xpath = "//input[@class = 'nav-search-input-desktop nav-action-list-items-search-form-input']")
     WebElement searchBar;
 
-    @FindBy(xpath = "//a[text() ='Company']")
+    @FindBy(xpath = "//header/div[1]/nav[1]/ul[1]/li[1]/ul[2]/li[5]/div[1]/div[1]/a[1]")
     WebElement company;
 
     @FindBy(xpath = "//span[text() = 'See how you can test your best']")

@@ -28,6 +28,8 @@ public class DropDown extends CommonAPI {
         homePageF.clickOnLoginButon();
 
         homePageF.selectFromDropDown("az");
+        Assert.assertTrue(homePageF.checkIfoptionAToZIsSelected());
+        LOG.info("A high to Z successfully displayed ");
         Thread.sleep(2000);
 
     }
@@ -43,12 +45,16 @@ public class DropDown extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
 
         homePageF.selectFromDropDown("za");
+        Assert.assertTrue(homePageF.checkIfoptionZToAIsSelected());
+        LOG.info("option Z to A successfully displayed ");
         Thread.sleep(2000);
 
     }
@@ -64,6 +70,8 @@ public class DropDown extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
@@ -71,6 +79,8 @@ public class DropDown extends CommonAPI {
 
         homePageF.selectFromDropDown("lohi");
         Thread.sleep(2000);
+        Assert.assertTrue(homePageF.checkIfoptionlowToHighIsSelected());
+        LOG.info("option low to high  successfully displayed ");
 
     }
 
@@ -86,12 +96,16 @@ public class DropDown extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
 
         homePageF.selectFromDropDown("hilo");
+        Assert.assertTrue(homePageF.checkIfoptionHighToLowIsSelected());
+        LOG.info("option high to low successfully displayed ");
         //WebElement element = driver.findElement(By.xpath("//select[@class='product_sort_container']"));
 
 
