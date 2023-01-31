@@ -1,3 +1,4 @@
+
 package com.nopcommerce.test;
 
 import base.CommonAPI;
@@ -15,7 +16,7 @@ public class TestRegistration extends CommonAPI {
 
     @Test
 
-    public void testLoginNop(){
+    public void testLoginNop() throws InterruptedException {
         PageHome pH= new PageHome(driver);
         RegistrationPage pR=new RegistrationPage(driver);
 
@@ -28,31 +29,24 @@ public class TestRegistration extends CommonAPI {
 
 
         LOG.info("I click on register link");
+        pH.clickOnRegisterLink();
+        Thread.sleep(2000);
+        String Fname="juba";
+        String Lname="two";
+        String Eadress= "juba91@gmail.com";
+        String Pwd ="123zxc";
+        String Cpwd="123zxc";
+        Thread.sleep(2000);
 
+        String CDetails="pnt";
 
-        pH.clickOnRegisterButton();
-
-
-        LOG.info("I enterred the user data");
-
-
-        pR.chooseGender();
-        pR.setFirstName();
-        pR.setLastName();
-        pR.setDOB();
-        pR.setMOB();
-        pR.setYOB();
-        pR.setCompagnyDetails();
-        pR.setPasswordReg();
-        pR.setConfirmationForPassword();
+        pR.setTheRegistrationInformation(Fname, Lname, Eadress, Pwd, Cpwd, CDetails);
 
 
 
         LOG.info("The registration page displayed successfully");
 
-        String title = getCurrentTitle();
-        Assert.assertEquals(title, "your registration completed ");
-
+        Assert.assertTrue(pR.checkIfRegistrationCompletedDisplayed());
     }
 }
 

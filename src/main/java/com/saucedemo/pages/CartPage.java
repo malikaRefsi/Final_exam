@@ -70,6 +70,21 @@ public class CartPage extends CommonAPI {
     @FindBy(css = "#cancel")
     WebElement cancel;
 
+    @FindBy(xpath = "//span[text()='Your Cart']")
+    WebElement YourCart;
+    @FindBy(xpath = "//div[text()='QTY']")
+    WebElement QTY;
+    @FindBy(xpath = "//div[text()='DESCRIPTION']")
+    WebElement Description;
+
+    @FindBy(xpath = "//span[text()='Checkout: Your Information']")
+    WebElement checkOutYourInformations;
+
+    @FindBy(xpath = "//span[text()='Checkout: Overview']")
+    WebElement checkOutOverview;
+
+
+
     public void clickOnAddItem1() {
         clickOn(addBackUp);
         LOG.info("click add to cart button button success");
@@ -142,6 +157,28 @@ public class CartPage extends CommonAPI {
     public void clickOncancel() {
         clickOn(cancel);
         LOG.info("click on cancel button success");}
+
+
+    public boolean checkIfYourCartHeaderIsDisplayed() {
+        return checkIfElementIsDisplayed(YourCart);
+    }
+    public boolean checkIfDescriptionIsDisplayed() {
+        return checkIfElementIsDisplayed(Description);
+    }
+    public boolean checkIfQuantityIsDisplayed() {
+        return checkIfElementIsDisplayed(QTY);
+
+    }
+    public boolean checkIfCheckOutHeaderIsDisplayed() {
+        return checkIfElementIsDisplayed(checkOutYourInformations);
+
+    }
+
+    public boolean checkIfCheckOutOverviewHeaderIsDisplayed() {
+        return checkIfElementIsDisplayed(checkOutOverview);
+
+    }
+
 
 }
 

@@ -50,7 +50,8 @@ public class CommonAPI {
     String username=Utility.decode(Utility.getProperties().getProperty("browserstack.userName.mr"));
     String password =Utility.decode(Utility.getProperties().getProperty("browserstack.passWord.mr"));
 
-
+     //String username=Utility.decode(Utility.getProperties().getProperty("browserstack.username"));
+     //String password =Utility.decode(Utility.getProperties().getProperty("browserstack.password"));
     public WebDriver driver;//created outside to make it global
 
     /***************************************************************/

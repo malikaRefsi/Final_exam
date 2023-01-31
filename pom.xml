@@ -110,9 +110,6 @@
         </dependency>
 
 
-
-
-
     </dependencies>
 
 
@@ -132,8 +129,10 @@
                 <configuration>
                     <suiteXmlFiles>
                         <!--                        here we have to copy and past the relative path "from content root" of our runner.xml file-->
-                            <suiteXmlFile>src/test/resources/orongeHRMrunner.xml</suiteXmlFile>
+<!--                            <suiteXmlFile>src/test/resources/orongeHRMrunner.xml</suiteXmlFile>-->
                         <!--                        <suiteXmlFile>src/test/resources/nopcommerce.xml</suiteXmlFile>-->
+                        <suiteXmlFile>src/test/resources/saucedemorunner.xml</suiteXmlFile>
+
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

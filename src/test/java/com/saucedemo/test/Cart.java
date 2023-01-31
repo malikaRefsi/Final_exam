@@ -23,13 +23,25 @@ public class Cart extends CommonAPI {
          String actualTitle = getCurrentTitle();
          Assert.assertEquals(expectedTitle, actualTitle);
          LOG.info("land to saucedemo success");
+         Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+         LOG.info("SwagLabs logo successfully displayed ");
 
          homePageF.typeusername(username);
          homePageF.typepassword(password);
          homePageF.clickOnLoginButon();
+         Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+         LOG.info("Products header successfully displayed ");
 
          cartPage.clickOnAddItem1();
          cartPage.clickOnShoppingCart();
+         Assert.assertTrue(cartPage.checkIfYourCartHeaderIsDisplayed());
+         LOG.info("Your cart header successfully displayed ");
+
+         Assert.assertTrue(cartPage.checkIfDescriptionIsDisplayed());
+         LOG.info("Description of the products successfully displayed ");
+
+         Assert.assertTrue(cartPage.checkIfQuantityIsDisplayed());
+         LOG.info("quantity of products successfully displayed ");
 
 
          String expectedTitle2 = "Swag Labs";
@@ -49,10 +61,14 @@ public class Cart extends CommonAPI {
          String actualTitle = getCurrentTitle();
          Assert.assertEquals(expectedTitle, actualTitle);
          LOG.info("land to saucedemo success");
+         Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+         LOG.info("SwagLabs logo successfully displayed ");
 
          homePageF.typeusername(username);
          homePageF.typepassword(password);
          homePageF.clickOnLoginButon();
+         Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+         LOG.info("Products header successfully displayed ");
 
          cartPage.clickOnAddItem1();
          cartPage.clickOnRemove();
@@ -70,13 +86,26 @@ public class Cart extends CommonAPI {
          String actualTitle = getCurrentTitle();
          Assert.assertEquals(expectedTitle, actualTitle);
          LOG.info("land to saucedemo success");
+         Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+         LOG.info("SwagLabs logo successfully displayed ");
 
          homePageF.typeusername(username);
          homePageF.typepassword(password);
          homePageF.clickOnLoginButon();
+         Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+         LOG.info("Products header successfully displayed ");
 
          cartPage.clickOnAddItem1();
          cartPage.clickOnShoppingCart();
+         Assert.assertTrue(cartPage.checkIfYourCartHeaderIsDisplayed());
+         LOG.info("Your cart header successfully displayed ");
+
+         Assert.assertTrue(cartPage.checkIfDescriptionIsDisplayed());
+         LOG.info("Description of the products successfully displayed ");
+
+         Assert.assertTrue(cartPage.checkIfQuantityIsDisplayed());
+         LOG.info("quantity of products successfully displayed ");
+
          cartPage.clickOnRemove();
      }
 
@@ -91,16 +120,28 @@ public class Cart extends CommonAPI {
          String actualTitle = getCurrentTitle();
          Assert.assertEquals(expectedTitle, actualTitle);
          LOG.info("land to saucedemo success");
+         Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+         LOG.info("SwagLabs logo successfully displayed ");
 
          homePageF.typeusername(username);
          homePageF.typepassword(password);
          homePageF.clickOnLoginButon();
+         Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+         LOG.info("Products header successfully displayed ");
 
          cartPage.clickOnAddItem1();
          cartPage.clickOnShoppingCart();
-         cartPage.clickOnContinueShopping();
-         //cartPage.clickOnAddToCartButton();
+         Assert.assertTrue(cartPage.checkIfYourCartHeaderIsDisplayed());
+         LOG.info("Your cart header successfully displayed ");
 
+         Assert.assertTrue(cartPage.checkIfDescriptionIsDisplayed());
+         LOG.info("Description of the products successfully displayed ");
+
+         Assert.assertTrue(cartPage.checkIfQuantityIsDisplayed());
+         LOG.info("quantity of products successfully displayed ");
+
+
+         cartPage.clickOnContinueShopping();
 
      }
 
@@ -116,18 +157,35 @@ public class Cart extends CommonAPI {
          String actualTitle = getCurrentTitle();
          Assert.assertEquals(expectedTitle, actualTitle);
          LOG.info("land to saucedemo success");
+         Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+         LOG.info("SwagLabs logo successfully displayed ");
 
          homePageF.typeusername(username);
          homePageF.typepassword(password);
          homePageF.clickOnLoginButon();
+         Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+         LOG.info("Products header successfully displayed ");
 
          cartPage.clickOnAddItem1();
+
          cartPage.clickOnShoppingCart();
+         Assert.assertTrue(cartPage.checkIfYourCartHeaderIsDisplayed());
+         LOG.info("Your cart header successfully displayed ");
+         Assert.assertTrue(cartPage.checkIfDescriptionIsDisplayed());
+         LOG.info("Description of the products successfully displayed ");
+         Assert.assertTrue(cartPage.checkIfQuantityIsDisplayed());
+         LOG.info("quantity of products successfully displayed ");
+
          cartPage.checkOut();
+         Assert.assertTrue(cartPage.checkIfCheckOutHeaderIsDisplayed());
+         LOG.info("CheckOut: Your infrormation header successfully displayed ");
+
          cartPage.typeFirstName("Fariza");
          cartPage.typeLastName("tadj");
          cartPage.typePostalCode("11214");
          cartPage.clickOnCtinueButon();
+         Assert.assertTrue(cartPage.checkIfCheckOutOverviewHeaderIsDisplayed());
+         LOG.info("CheckOut: Your infrormation header successfully displayed ");
          cartPage.clickOnFinishButton();
         // cartPage.clickOnBack();
          // cartPage.clickOnBack();
@@ -144,24 +202,45 @@ public class Cart extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
+
         cartPage.clickOnAddItem1();
         cartPage.clickOnAddTItem2();
         cartPage.clickOnAddItem3();
         cartPage.clickOnAdditem4();
         Thread.sleep(2000);
+
         cartPage.clickOnShoppingCart();
+        Assert.assertTrue(cartPage.checkIfYourCartHeaderIsDisplayed());
+        LOG.info("Your cart header successfully displayed ");
+        Assert.assertTrue(cartPage.checkIfDescriptionIsDisplayed());
+        LOG.info("Description of the products successfully displayed ");
+        Assert.assertTrue(cartPage.checkIfQuantityIsDisplayed());
+        LOG.info("quantity of products successfully displayed ");
+
         cartPage.checkOut();
+        Assert.assertTrue(cartPage.checkIfCheckOutHeaderIsDisplayed());
+        LOG.info("CheckOut: Your infrormation header successfully displayed ");
         cartPage.typeFirstName("Fariza");
         cartPage.typeLastName("tadj");
         cartPage.typePostalCode("11214");
         Thread.sleep(2000);
-        cartPage.clickOnCtinueButon();
-        cartPage.clickOnFinishButton();
 
+        cartPage.clickOnCtinueButon();
+        Assert.assertTrue(cartPage.checkIfCheckOutOverviewHeaderIsDisplayed());
+        LOG.info("CheckOut:overview header successfully displayed ");
+       // cartPage.checkOut();
+
+
+        cartPage.clickOnFinishButton();
         String checkOutValidation = homePageF.checkOutValidation();
         Assert.assertEquals(checkOutValidation, "THANK YOU FOR YOUR ORDER");
         LOG.info("checkOut message Validation");
@@ -179,27 +258,46 @@ public class Cart extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
         cartPage.clickOnAddItem1();
         cartPage.clickOnAddTItem2();
         cartPage.clickOnAddItem3();
         cartPage.clickOnAdditem4();
 
         cartPage.clickOnShoppingCart();
+        Assert.assertTrue(cartPage.checkIfYourCartHeaderIsDisplayed());
+        LOG.info("Your cart header successfully displayed ");
+        Assert.assertTrue(cartPage.checkIfDescriptionIsDisplayed());
+        LOG.info("Description of the products successfully displayed ");
+        Assert.assertTrue(cartPage.checkIfQuantityIsDisplayed());
+        LOG.info("quantity of products successfully displayed ");
+
+
         Thread.sleep(2000);
 
         cartPage.clickOnRemove();
         cartPage.clickOnRemoveItem2();
         Thread.sleep(2000);
         cartPage.checkOut();
+        Assert.assertTrue(cartPage.checkIfCheckOutHeaderIsDisplayed());
+        LOG.info("CheckOut: Your infrormation header successfully displayed ");
+
         cartPage.typeFirstName("Fariza");
         cartPage.typeLastName("tadj");
         cartPage.typePostalCode("11214");
         Thread.sleep(2000);
         cartPage.clickOnCtinueButon();
+        Assert.assertTrue(cartPage.checkIfCheckOutOverviewHeaderIsDisplayed());
+        LOG.info("CheckOut:overview header successfully displayed ");
+
         cartPage.clickOnFinishButton();
 
         String checkOutValidation = homePageF.checkOutValidation();
@@ -217,31 +315,47 @@ public class Cart extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
         cartPage.clickOnAddItem1();
         cartPage.clickOnAddTItem2();
         cartPage.clickOnAddItem3();
         cartPage.clickOnAdditem4();
 
         cartPage.clickOnShoppingCart();
-        Thread.sleep(2000);
+        Assert.assertTrue(cartPage.checkIfYourCartHeaderIsDisplayed());
+        LOG.info("Your cart header successfully displayed ");
+        Assert.assertTrue(cartPage.checkIfDescriptionIsDisplayed());
+        LOG.info("Description of the products successfully displayed ");
+        Assert.assertTrue(cartPage.checkIfQuantityIsDisplayed());
+        LOG.info("quantity of products successfully displayed ");
+
         cartPage.checkOut();
+
         cartPage.clickOncancel();
         Thread.sleep(2000);
         cartPage.clickOnRemove();
         cartPage.clickOnRemoveItem2();
         Thread.sleep(2000);
         cartPage.checkOut();
+
+
         cartPage.typeFirstName("Fariza");
         cartPage.typeLastName("tadj");
         cartPage.typePostalCode("11214");
         Thread.sleep(2000);
         cartPage.clickOnCtinueButon();
-        cartPage.clickOnFinishButton();
+        Assert.assertTrue(cartPage.checkIfCheckOutOverviewHeaderIsDisplayed());
+        LOG.info("CheckOut:overview header successfully displayed ");
 
+        cartPage.clickOnFinishButton();
         String checkOutValidation = homePageF.checkOutValidation();
         Assert.assertEquals(checkOutValidation, "THANK YOU FOR YOUR ORDER");
         LOG.info("checkOut message Validation");
@@ -258,18 +372,30 @@ public class Cart extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
 
         cartPage.clickOnAddItem1();
         cartPage.clickOnAddTItem2();
         cartPage.clickOnAddItem3();
         cartPage.clickOnAdditem4();
         cartPage.clickOnShoppingCart();
+        Assert.assertTrue(cartPage.checkIfYourCartHeaderIsDisplayed());
+        LOG.info("Your cart header successfully displayed ");
+        Assert.assertTrue(cartPage.checkIfDescriptionIsDisplayed());
+        LOG.info("Description of the products successfully displayed ");
+        Assert.assertTrue(cartPage.checkIfQuantityIsDisplayed());
+        LOG.info("quantity of products successfully displayed ");
+
         Thread.sleep(2000);
         cartPage.checkOut();
+
         cartPage.clickOnCtinueButon();
 
         String checkOutValidation = homePageF.checkOutcancelation();

@@ -21,15 +21,17 @@ public class HomePage extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
 
-        String expectedTwitterTitle = "Sauce Labs (@saucelabs) / Twitter";
-        String actualTwitterTitle = getCurrentTitle();
-        Assert.assertEquals(expectedTitle, actualTitle);
-        LOG.info("land to sauce labs twitter success");
+        homePageF.clickOnTwitter();
+
 
     }
     //17
@@ -42,16 +44,17 @@ public class HomePage extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
         homePageF.clickOnFacebook();
 
-        String expectedTwitterTitle = "Sauce Labs | Facebook";
-        String actualTwitterTitle = getCurrentTitle();
-        Assert.assertEquals(expectedTitle, actualTitle);
-        LOG.info("land to sauce labs facebook success");
 
     }
     //18
@@ -64,16 +67,19 @@ public class HomePage extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
+
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
         homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
         homePageF.clickOnLinkedin();
 
-        String expectedTwitterTitle = " Sign In | LinkedIn";
-        String actualTwitterTitle = getCurrentTitle();
-        Assert.assertEquals(expectedTitle, actualTitle);
-        LOG.info("land to sauce labs linkedin success");
+
 
     }
 }
