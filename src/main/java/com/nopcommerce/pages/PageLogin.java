@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
+
 public class PageLogin extends CommonAPI {
     Logger LOG = LogManager.getLogger(PageLogin.class.getName());
 
@@ -15,40 +17,49 @@ public class PageLogin extends CommonAPI {
         PageFactory.initElements(driver, this);
     }
 
-    //objects
-//    @FindBy(xpath = "//input[@id='email']")
-//    WebElement userName;
-//
-//    @FindBy(xpath = "//input[@class='password']")
-//    WebElement password;
-//    @FindBy(xpath = "//a[@href='passwordrecovery']")
-//    WebElement resetPassword;
-//
-//    @FindBy(xpath = "//button[@type='submit']")
-//    WebElement btnLogin;
-//
-//
-    //reusable methods
 
-    public void typeUserName(String userName){
-        this.username.sendKeys();}
-    public void typePassword(String pwd){
-
-        this.password.sendKeys();}
-    public void  clickONLoginButton(){
-        loginbtn.click();
+@FindBy(xpath="/html/body/div[6]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")
+WebElement logout;
+    public void logOut(){
+        clickOn(logout);
     }
 
+    @FindBy(xpath = "//*[@id=\"Email\"]")
+    WebElement EmailField;
+    @FindBy(xpath = "//*[@id=\"Password\"]")
+    WebElement passwordField;
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div[2]/div[1]/div[2]/form/div[3]/button")
+    WebElement loginButton;
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div[2]/div[1]/div[2]/form/div[2]/div[3]/span/a")
+    WebElement forgotPassword;
+    @FindBy(xpath= "/html/body/div[6]/div[1]/div[2]/div[1]/a/img")
+    WebElement displayNop;
+    @FindBy(xpath= "/html/body/div[6]/div[3]/div/div/div/div/div[2]/div[1]/h2")
+    WebElement displayOurStore;
+    public boolean checkIfOurStoreIsDisplayed(){
+        return displayOurStore.isDisplayed();
+    }
+    public boolean checkIfNopCommerceIsDisplayed(){
+        return displayNop.isDisplayed();}
+    @FindBy(xpath= "/html/body/div[6]/div[3]/div/div/div/div[2]/div[3]/div[1]/h2")
+    WebElement displayAboutLogin;
+    public boolean checkIfAboutLoginDisplayed(){
+        return checkIfElementIsDisplayed(displayAboutLogin);}
 
-    @FindBy(id = "Username")
-    WebElement username;
 
-    @FindBy(id = "Password")
-    WebElement password;
-
-    @FindBy(xpath = "/html/body/div[6]/section/div/div/div/div/div/div[2]/div[1]/div[2]/form/div[2]/div[4]/input")
-    WebElement loginbtn;
+    public void loginWithCorrectCred(String emaila,String Password) throws InterruptedException {
+        EmailField.sendKeys(emaila);
+        Thread.sleep(2000);
+        passwordField.sendKeys(Password);
+        Thread.sleep(2000);
+        clickOn(loginButton);
+        Thread.sleep(2000);
+    }
+    public void setForgotPassword(){
+        clickOn(forgotPassword);
+    }
 }
+
 
 
 
