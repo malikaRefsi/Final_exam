@@ -1,21 +1,21 @@
 package com.orangeHRM.pages;
 
 import base.CommonAPI;
+import com.github.javafaker.IdNumber;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.List;
-
-import static java.awt.SystemColor.menu;
 
 public class PIMpage extends CommonAPI {
         Logger LOG = LogManager.getLogger(PIMpage.class.getName());
@@ -161,7 +161,7 @@ public class PIMpage extends CommonAPI {
     public int numberOfEmployeeInList(){
         return numberOfElementInList(arrowsListOfEmployeeList);
     }
-    public void editePersonalDetailsOfAnEmployee(String str1, String str2, String str3) throws InterruptedException {
+    public void editePersonalDetailsOfAnEmployee(String str1, String str3) throws InterruptedException {
         clickOn(editeLogoOfFifthRow);
         Thread.sleep(2000);
         typeText(nickNameField,str1);
@@ -173,6 +173,48 @@ public class PIMpage extends CommonAPI {
         clickOn(personalDetailsSavingButton);
 
 
+    }
+    @FindBy(xpath = "(//img[@alt='profile picture'])[2]")
+    WebElement profilePicture;
+    @FindBy(xpath = "//i[@class='oxd-icon bi-plus']")
+    WebElement plusLink;
+    @FindBy(xpath = "//button[@type='submit']")
+    WebElement savePictureButton;
+    @FindBy(xpath = "(//button[@type='submit'])[3]")
+    WebElement saveAttachmentButton;
+    @FindBy(xpath = "(//i[@class='oxd-icon bi-plus oxd-button-icon'])[1]")
+    WebElement addAttachmentsButton;
+    @FindBy(xpath = "(//div[@class='oxd-file-button'])[1]")
+    WebElement browsButton;
+
+
+    public void addAnAttachmentToAnEmployeesInformation(String fileName) throws InterruptedException, AWTException {
+        clickOn(editeLogoOfFifthRow);
+//        Thread.sleep(3000);
+        clickOn(addAttachmentsButton);
+        Thread.sleep(2000);
+        clickOn(browsButton);
+        uploadProfilePicture(fileName);
+        Thread.sleep(10000);
+        clickOn(saveAttachmentButton);
+        Thread.sleep(2000);
+        Assert.assertEquals(getTextFromElement(toastMessageAfterAddUser),"Successfully Saved");
+        LOG.info("the profile picture is successfully uploaded");
+        Thread.sleep(4000);
+    }
+    public void editeProfilePictureOfAnEmployees(String fileName) throws InterruptedException, AWTException {
+        clickOn(editeLogoOfFifthRow);
+//        Thread.sleep(3000);
+        clickOn(profilePicture);
+        Thread.sleep(2000);
+        clickOn(plusLink);
+        uploadProfilePicture(fileName);
+        Thread.sleep(10000);
+        clickOn(savePictureButton);
+        Thread.sleep(2000);
+        Assert.assertEquals(getTextFromElement(toastMessageAfterAddUser),"Successfully Updated");
+        LOG.info("the profile picture is successfully uploaded");
+        Thread.sleep(4000);
     }
     public void searchEmployeeByEnteringTheId (String str) throws InterruptedException {
         clickOn(PIMFromMenu);
@@ -285,6 +327,41 @@ public class PIMpage extends CommonAPI {
         clickOn(searchButton);
         Thread.sleep(3000);
         LOG.info("There are "+getTextFromElement(recordsFound)+ " with the an include:  "+option1+" , subunit: "+option2+" , job title: "+option3+" , employment status: "+option3);
+
+    }
+    public void resetSearchEmployee (String includeOption, String subUnitOption, String jobTitleOption, String employmentStatusOption,
+                                     String SupervisorName, String employeeName, String Id) throws InterruptedException {
+        clickOn(PIMFromMenu);
+        Assert.assertEquals(getTextFromElement(PIMAsHeader),"PIM");
+        LOG.info("we are successfully landed to the PIM page");
+        clickOn(includeDropdown);
+        clickONAnElementWhichContainSpecificTextAmongElementsList(dropdownsList,includeOption);
+        clickOn(subUnitDropdown);
+        clickONAnElementWhichContainSpecificTextAmongElementsList(dropdownsList,subUnitOption);
+        clickOn(jobTitleDropdown);
+        clickONAnElementWhichContainSpecificTextAmongElementsList(dropdownsList,jobTitleOption);
+        clickOn(employmentStatusDropdown);
+        clickONAnElementWhichContainSpecificTextAmongElementsList(dropdownsList,employmentStatusOption);
+        typeText(SupervisorNameField,SupervisorName);
+        typeText(employeeNameField,employeeName);
+        typeText(IdField,Id);
+        LOG.info("All the field successfully entered");
+        clickOn(resetButton);
+        Thread.sleep(3000);
+        clickOn(includeDropdown);
+        Assert.assertEquals(getTextFromElement(includeDropdown),"Current Employees Only");
+        clickOn(subUnitDropdown);
+        Assert.assertEquals(getTextFromElement(subUnitDropdown),"-- Select --");
+        clickOn(jobTitleDropdown);
+        Assert.assertEquals(getTextFromElement(jobTitleDropdown),"-- Select --");
+        clickOn(employmentStatusDropdown);
+        Assert.assertEquals(getTextFromElement(employmentStatusDropdown),"-- Select --");
+        Assert.assertEquals(getTextFromElement(SupervisorNameField),"");
+        Assert.assertEquals(getTextFromElement(employeeNameField),"");
+        Assert.assertEquals(getTextFromElement(IdField),"");
+        LOG.info("we are successfully reset the search and all the entered information erased");
+
+
 
     }
 

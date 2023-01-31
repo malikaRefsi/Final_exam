@@ -4,6 +4,7 @@ import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -66,12 +67,19 @@ public class ReadFromExcel {
         }
         return data;
     }
+//    public static void main(String[] args) throws IOException {
+////to use this class
+//        ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\Malika Refsi\\IdeaProjects\\AutomationFrameWork\\data\\titles.xlsx","sheet1");
+//        System.out.println(readFromExcel.getCellValueForGivenHeaderAndKey("value","home page title"));
+//
+//    }
 
-    public static void main(MysqlxDatatypes.Scalar.String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 //to use this class
-        ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\Malika Refsi\\IdeaProjects\\AutomationFrameWork\\data\\titles.xlsx","sheet1");
-//        ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\nabil\\IdeaProjects\\projectframework\\data\\titles.xlsx","sheetcred");
-        System.out.println(readFromExcel.getCellValueForGivenHeaderAndKey("value","home page title"));
+        String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
+        ReadFromExcel readFromExcel=new ReadFromExcel(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx","sheet1");
+//        ReadFromExcel readFromExcel=new ReadFromExcel("C:\\Users\\nabil\\IdeaProjects\\projectframework\\data\\orangehrmData.xlsx","sheetcred");
+        System.out.println(readFromExcel.getCellValueForGivenHeaderAndKey("key","home page title"));
 
     }
 }

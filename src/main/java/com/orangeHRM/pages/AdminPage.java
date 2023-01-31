@@ -24,11 +24,17 @@ public class AdminPage extends CommonAPI {
     @FindBy(xpath = "//a[text()='Nationalities']")
     WebElement menuAdminNationalities;
     @FindBy(xpath = "//i[@class='oxd-icon bi-plus oxd-button-icon']")
-    WebElement addNationalityButton;
+    WebElement addButton;
+    @FindBy(xpath = "(//span[text()='Job '])[1]")
+    WebElement jobMenuDropdown;
+    @FindBy(xpath = "(//a[text()='Job Titles'])[1]")
+    WebElement jobTitles;
+
+
     @FindBy(xpath = "(//input[contains(@class,'oxd-input oxd-input--active')])[2]")
     WebElement nameField;
-    @FindBy(xpath = "//h6[text()='Nationalities']")
-    WebElement headerOfNationalityPage;
+    @FindBy(xpath = "//h6[@class='oxd-text oxd-text--h6 orangehrm-main-title']")
+    WebElement slideTitle;
 
     @FindBy(xpath = "//h6[text()='Add Nationality']")
     WebElement headerAfterSelectingNationality;
@@ -83,13 +89,14 @@ public class AdminPage extends CommonAPI {
 
 
     //reusable steps
+
     public void addNationality(String str) throws InterruptedException {
         clickOn(menuAdmin);
         clickOn(menuAdminNationalities);
-        Assert.assertEquals(getTextFromElement(headerOfNationalityPage),"Nationalities");
+        Assert.assertEquals(getTextFromElement(slideTitle),"Nationalities");
         LOG.info("we are successfully landed to the nationalities page");
         LOG.info("Before adding nationality it was there: "+getTextFromElement(recordsFound));
-        clickOn(addNationalityButton);
+        clickOn(addButton);
         Assert.assertEquals(getTextFromElement(headerAfterSelectingNationality),"Add Nationality");
         LOG.info("we are successfully landed to the add nationality page ");
         typeText(nameField,str);
@@ -105,7 +112,7 @@ public class AdminPage extends CommonAPI {
     public void deleteNationalityUsingTrashLogo() throws InterruptedException {
         clickOn(menuAdmin);
         clickOn(menuAdminNationalities);
-        Assert.assertEquals(getTextFromElement(headerOfNationalityPage),"Nationalities");
+        Assert.assertEquals(getTextFromElement(slideTitle),"Nationalities");
         LOG.info("we are successfully landed to the nationalities page");
         LOG.info("Before deleting nationality it was there: "+getTextFromElement(recordsFound));
         clickOn(sixthCheckboxInTheNationalityList);
@@ -124,7 +131,7 @@ public class AdminPage extends CommonAPI {
     public void deleteNationalityUsingDeleteSelectedButton() throws InterruptedException {
         clickOn(menuAdmin);
         clickOn(menuAdminNationalities);
-        Assert.assertEquals(getTextFromElement(headerOfNationalityPage),"Nationalities");
+        Assert.assertEquals(getTextFromElement(slideTitle),"Nationalities");
         LOG.info("we are successfully landed to the nationalities page");
         LOG.info("Before deleting nationality it was there: "+getTextFromElement(recordsFound));
         clickOn(sixthCheckboxInTheNationalityList);
@@ -143,7 +150,7 @@ public class AdminPage extends CommonAPI {
     public void deleteMultipleNationalitiesUsingDeleteSelectedButton() throws InterruptedException {
         clickOn(menuAdmin);
         clickOn(menuAdminNationalities);
-        Assert.assertEquals(getTextFromElement(headerOfNationalityPage),"Nationalities");
+        Assert.assertEquals(getTextFromElement(slideTitle),"Nationalities");
         LOG.info("we are successfully landed to the nationalities page");
         LOG.info("Before deleting nationality it was there: "+getTextFromElement(recordsFound));
         clickOn(sixthCheckboxInTheNationalityList);
@@ -165,7 +172,7 @@ public class AdminPage extends CommonAPI {
     public void deleteAllNationalitiesUsingDeleteSelectedButton() throws InterruptedException {
         clickOn(menuAdmin);
         clickOn(menuAdminNationalities);
-        Assert.assertEquals(getTextFromElement(headerOfNationalityPage),"Nationalities");
+        Assert.assertEquals(getTextFromElement(slideTitle),"Nationalities");
         LOG.info("we are successfully landed to the nationalities page");
         LOG.info("Before deleting nationality it was there: "+getTextFromElement(recordsFound));
         clickOn(checkboxOnTheHeaderOfNationalitiesList);
@@ -185,7 +192,7 @@ public class AdminPage extends CommonAPI {
     public void editeANationalityInTheRowFive(WebDriver driver,String str) throws InterruptedException {
         clickOn(menuAdmin);
         clickOn(menuAdminNationalities);
-        Assert.assertEquals(getTextFromElement(headerOfNationalityPage),"Nationalities");
+        Assert.assertEquals(getTextFromElement(slideTitle),"Nationalities");
         LOG.info("we are successfully landed to the nationalities page");
         LOG.info("Before editing any nationality it was there: "+getTextFromElement(recordsFound));
         clickOn(editeLogoOfFifthRow);
@@ -211,14 +218,14 @@ public class AdminPage extends CommonAPI {
     public void cancelAddingNationality(String str) throws InterruptedException {
         clickOn(menuAdmin);
         clickOn(menuAdminNationalities);
-        Assert.assertEquals(getTextFromElement(headerOfNationalityPage),"Nationalities");
+        Assert.assertEquals(getTextFromElement(slideTitle),"Nationalities");
         LOG.info("we are successfully landed to the nationalities page");
-        clickOn(addNationalityButton);
+        clickOn(addButton);
         Assert.assertEquals(getTextFromElement(headerAfterSelectingNationality),"Add Nationality");
         LOG.info("we are successfully landed to the add nationality page ");
         typeText(nameField,str);
         clickOn(cancelButton);
-        Assert.assertEquals(getTextFromElement(headerOfNationalityPage),"Nationalities");
+        Assert.assertEquals(getTextFromElement(slideTitle),"Nationalities");
         LOG.info("we are successfully back to the nationalities page");
 
 
@@ -228,7 +235,7 @@ public class AdminPage extends CommonAPI {
     public void checkTheVisibilityOfDeleteSelectedButton(){
         clickOn(menuAdmin);
         clickOn(menuAdminNationalities);
-        Assert.assertEquals(getTextFromElement(headerOfNationalityPage),"Nationalities");
+        Assert.assertEquals(getTextFromElement(slideTitle),"Nationalities");
         LOG.info("we are successfully landed to the nationalities page");
         try {checkIfElementIsDisplayed(deleteSelectedButton);
             LOG.info("the Delete Selected button was visible even before selecting any nationality from Nationality list");
@@ -241,21 +248,48 @@ public class AdminPage extends CommonAPI {
         }else {LOG.info("the Delete Selected button is not visible even after selecting a nationality from the nationalities list");}
 
     }
-    public void searchEmployeeByEnteringTheId (String str){
+
+
+ public void addJobTitle(String str) throws InterruptedException {
+    clickOn(menuAdmin);
+    clickOn(jobMenuDropdown);
+    clickOn(jobTitles);
+    Assert.assertEquals(getTextFromElement(slideTitle),"Job Titles");
+    LOG.info("we are successfully landed to the Job Titles page");
+    LOG.info("Before adding Job Title it was there: "+getTextFromElement(recordsFound));
+    clickOn(addButton);
+    Assert.assertEquals(getTextFromElement(slideTitle),"Add Job Title");
+    LOG.info("we are successfully landed to the add Job Titles page ");
+    typeText(nameField,str);
+    clickOn(saveButton);
+    Thread.sleep(2000);
+    Assert.assertEquals(getTextFromElement(toastMessage),"Successfully Saved");
+    LOG.info("we are successfully added a Job Title");
+    Thread.sleep(2000);
+    LOG.info("After adding an Job Title nationality: "+getTextFromElement(recordsFound));
+
+}
+    @FindBy(xpath = "(//a[text()='Pay Grades'])[1]")
+    WebElement PayGrades;
+
+    public void addPayGrade(String str) throws InterruptedException {
         clickOn(menuAdmin);
-        clickOn(menuAdminNationalities);
-        Assert.assertEquals(getTextFromElement(headerOfNationalityPage),"Nationalities");
-        LOG.info("we are successfully landed to the nationalities page");
-        typeText(IdField,str);
-        clickOn(searchButton);
-        LOG.info((recordsFound));
-        LOG.info((recordsFound));
-//        checkIfStringExistInElementList(idColumnInEmployeeList);
-
-
+        clickOn(jobMenuDropdown);
+        clickOn(PayGrades);
+        Assert.assertEquals(getTextFromElement(slideTitle),"Pay Grades");
+        LOG.info("we are successfully landed to the Pay Grades page");
+        LOG.info("Before adding Pay Grade it was there: "+getTextFromElement(recordsFound));
+        clickOn(addButton);
+        Assert.assertEquals(getTextFromElement(slideTitle),"Add Pay Grade");
+        LOG.info("we are successfully landed to the add Pay Grade page ");
+        typeText(nameField,str);
+        clickOn(saveButton);
+        // Thread.sleep(2000);
+        Assert.assertEquals(getTextFromElement(toastMessage),"No Records Found");
+        LOG.info("we are successfully added a new Pay Grade ");
+        Thread.sleep(2000);
+        LOG.info("After adding an Pay Grade nationality: "+getTextFromElement(recordsFound));
 
     }
-
-
 
 }
