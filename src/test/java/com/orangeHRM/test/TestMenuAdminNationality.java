@@ -1,6 +1,7 @@
 package com.orangeHRM.test;
 
 import base.CommonAPI;
+import com.github.javafaker.Faker;
 import com.orangeHRM.pages.HomePage;
 import com.orangeHRM.pages.LoginPage;
 import com.orangeHRM.pages.AdminPage;
@@ -29,14 +30,14 @@ public class TestMenuAdminNationality extends CommonAPI {
 //    }
     @Test
     public void addNationalityTest() throws InterruptedException {
-//        LoginPage loginPage = new LoginPage(getDriver());
-//        HomePage homePage=new HomePage(getDriver());
-        AdminPage nationalityPage = new AdminPage(getDriver());
-//        String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
-//        String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
-//        loginPage.login(userName, password);
-
-        nationalityPage.addNationality("Algerian3");
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage=new HomePage(getDriver());
+        AdminPage adminPage = new AdminPage(getDriver());
+        String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
+        String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
+        loginPage.login(userName, password);
+        Faker faker=new Faker();
+        adminPage.addNationality(faker.nation().nationality());
 
 
     }
@@ -44,65 +45,66 @@ public class TestMenuAdminNationality extends CommonAPI {
     public void TestVisibilityDeleteSelectedButton() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
-        AdminPage nationalityPage=new AdminPage(getDriver());
+        AdminPage adminPage=new AdminPage(getDriver());
         String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
         String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
         loginPage.login(userName, password);
         Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
         LOG.info("we are successfully landed in the homepage ");
-        nationalityPage.checkTheVisibilityOfDeleteSelectedButton();
+        adminPage.checkTheVisibilityOfDeleteSelectedButton();
 
     }
 //    @Test
     public void TestCancelAddingNationality() throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
-        AdminPage nationalityPage=new AdminPage(getDriver());
+        AdminPage adminPage=new AdminPage(getDriver());
         String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
         String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
         loginPage.login(userName, password);
         Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
         LOG.info("we are successfully landed in the homepage ");
-        nationalityPage.cancelAddingNationality("algerian");
+        Faker faker=new Faker();
+        adminPage.cancelAddingNationality(faker.nation().nationality());
 
     }
 //    @Test
     public void TestDeleteNationalityUsingTrashLogo() throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
-        AdminPage nationalityPage=new AdminPage(getDriver());
+        AdminPage adminPage=new AdminPage(getDriver());
         String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
         String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
         loginPage.login(userName, password);
         Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
         LOG.info("we are successfully landed in the homepage ");
-        nationalityPage.deleteNationalityUsingTrashLogo();
+        adminPage.deleteNationalityUsingTrashLogo();
 
     }
 //    @Test
     public void TestDeleteNationalityUsingUsingDeleteSelectedButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
-        AdminPage nationalityPage=new AdminPage(getDriver());
+        AdminPage adminPage=new AdminPage(getDriver());
         String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
         String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
         loginPage.login(userName, password);
         Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
         LOG.info("we are successfully landed in the homepage ");
-        nationalityPage.deleteNationalityUsingDeleteSelectedButton();
+        adminPage.deleteNationalityUsingDeleteSelectedButton();
 
     }
 //    @Test
     public void TestDeleteMultipleNationalities3UsingUsingDeleteSelectedButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
-        AdminPage nationalityPage=new AdminPage(getDriver());
+        AdminPage adminPage=new AdminPage(getDriver());
         String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
         String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
         loginPage.login(userName, password);
         Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
         LOG.info("we are successfully landed in the homepage ");
-        nationalityPage.deleteMultipleNationalitiesUsingDeleteSelectedButton();
+        adminPage.deleteMultipleNationalitiesUsingDeleteSelectedButton();
 
     }
 
@@ -110,26 +112,26 @@ public class TestMenuAdminNationality extends CommonAPI {
     public void TestDeleteAllNationalitiesUsingDeleteSelectedButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
-        AdminPage nationalityPage=new AdminPage(getDriver());
+        AdminPage adminPage=new AdminPage(getDriver());
         String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
         String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
         loginPage.login(userName, password);
         Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
         LOG.info("we are successfully landed in the homepage ");
-        nationalityPage.deleteAllNationalitiesUsingDeleteSelectedButton();
+        adminPage.deleteAllNationalitiesUsingDeleteSelectedButton();
 
     }
 //    @Test
     public void TestEditeNationality() throws InterruptedException {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
-        AdminPage nationalityPage=new AdminPage(getDriver());
+        AdminPage adminPage=new AdminPage(getDriver());
         String userName = ConnectDB.getTableColumnData("select * from credentials", "username").get(1);
         String password = ConnectDB.getTableColumnData("select * from credentials", "password").get(1);
         loginPage.login(userName, password);
         Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
         LOG.info("we are successfully landed in the homepage ");
-        nationalityPage.editeANationalityInTheRowFive(getDriver(),"'French'");
+        adminPage.editeANationalityInTheRowFive(getDriver(),"'French'");
 
     }
 

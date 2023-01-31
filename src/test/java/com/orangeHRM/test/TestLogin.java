@@ -9,6 +9,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.orangeHRM.pages.HomePage;
 import utility.ConnectDB;
+import utility.ReadFromExcel;
+
+import java.io.File;
 
 
 public class TestLogin extends CommonAPI {
@@ -53,8 +56,11 @@ public class TestLogin extends CommonAPI {
         LOG.info("we are in the login page ");
         String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
         loginPage.resetPassWord(getDriver(),userName);
+        String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
+        ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
+        String title=readFromExcel.getCellValueForGivenHeaderAndKey("key","RestPasswordConfirmationText");
         String actualRestPasswordConfirmationText=loginPage.getResetPasswordText();
-        Assert.assertEquals(actualRestPasswordConfirmationText,"Reset Password link sent successfully");
+        Assert.assertEquals(actualRestPasswordConfirmationText,title);
         LOG.info("Reset Password link sent successfully ");
 
 
@@ -82,9 +88,14 @@ public class TestLogin extends CommonAPI {
         loginPage.login(userName,password);
         Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
         LOG.info("we are successfully logged in ");
-        homePage.updatePassword(password,"malikA1989$");
+        String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
+        ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
+        String newPassword=readFromExcel.getCellValueForGivenHeaderAndKey("key","password");
+
+        homePage.updatePassword(password,newPassword);
         Thread.sleep(3000);
-        Assert.assertEquals(homePage.getToastMessage(),"Successfully Saved");
+        String confirmationToastMessage=readFromExcel.getCellValueForGivenHeaderAndKey("key","Update password confirmation");
+        Assert.assertEquals(homePage.getToastMessage(),confirmationToastMessage);
         LOG.info("the password successfully changed");
     }
 

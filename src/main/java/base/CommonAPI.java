@@ -23,6 +23,9 @@ import reporting.ExtentManager;
 import reporting.ExtentTestManager;
 import utility.Utility;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,6 +37,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
+import java.util.List;
 
 public class CommonAPI {
     /********************************************************/
@@ -273,14 +277,19 @@ public class CommonAPI {
         Thread.sleep(3000);
     }
 
-    public void arrowDownTwiceAndEnter(WebElement element) {
-        element.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER);
+    public void arrowDownOnceAndEnter(WebElement element) {
+        element.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
     }
-
+    public void ClickOnElementIfIsNotSelected(WebElement element) {
+        if (element.isSelected()==true){LOG.info("the icon already selected");}
+        else{clickOn(element);}
+    }
     public void arrowDownOnce(WebElement element) {
         element.sendKeys(Keys.ARROW_DOWN);
     }
-
+    public void arrowDownTwiceAndEnter(WebElement element) {
+        element.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER);
+    }
     public Set<String> getWindowHandles(WebDriver driver) {
         Set<String> windows = driver.getWindowHandles();
         return windows;
@@ -344,6 +353,8 @@ public class CommonAPI {
         ac.moveToElement(element).doubleClick().click().sendKeys(Keys.BACK_SPACE).build().perform();
 //        Thread.sleep(1000);
     }
+
+
     public void typeTextUsingJavaScript(WebDriver driver,WebElement element,String str){
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("arguments[0].value="+str,element);
@@ -382,6 +393,32 @@ public class CommonAPI {
         } catch (Exception e) {
             LOG.info("Exception while taking screenshot "+e.getMessage());
         }
+    }
+    public void uploadProfilePicture(String fileName) throws AWTException {
+    /*
+1-copy the path
+2-ctrl+v
+3-enter
+ */
+        //for that we need the robot class
+        Robot rb=new Robot();
+        rb.delay(2000);//while the window will open
+        // to copy the path of the file in clip bord  for that we will the class
+        //same as ctrl+c
+        String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+fileName;
+        StringSelection ss=new StringSelection(filePath);//this buffer will point to the filePath
+        //we also we need this method
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,null);
+        //ctrl+v
+        rb.keyPress(KeyEvent.VK_CONTROL);//Press on ctrl key
+        rb.keyPress(KeyEvent.VK_V);//Press on V key
+
+        rb.keyRelease(KeyEvent.VK_CONTROL);//release on ctrl key
+        rb.keyRelease(KeyEvent.VK_V);//release on V key
+//        enter
+        rb.keyPress(KeyEvent.VK_ENTER);
+        rb.keyRelease(KeyEvent.VK_ENTER);
+
     }
 
     /**************************************************************************************/
