@@ -15,9 +15,11 @@ import java.io.File;
 
 public class LogOut extends CommonAPI {
     Logger LOG = LogManager.getLogger(LogOut.class.getName());
+
   // ReadFromExcel read = new ReadFromExcel("C:\\Users\\12016\\eclipse-workspace\\Final_exam\\data\\fariData.xlsx", "sheetN1");
     String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"fariData.xlsx";
     ReadFromExcel read = new ReadFromExcel(filePath, "sheetN1");
+
 
 
     @Test
@@ -27,7 +29,9 @@ public class LogOut extends CommonAPI {
         String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
         String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
 
+
         String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
+
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");

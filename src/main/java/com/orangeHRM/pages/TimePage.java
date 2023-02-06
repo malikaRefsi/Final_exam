@@ -70,7 +70,32 @@ public class TimePage extends CommonAPI {
 
     @FindBy(xpath = "//button[@class='oxd-button oxd-button--medium oxd-button--label-danger orangehrm-horizontal-margin']")
     WebElement deleteSelectedButton;
-
+    @FindBy(xpath = "(//input[@class='oxd-input oxd-input--active'])[2]")
+    WebElement projectNameField;
+    @FindBy(xpath = "//input[@placeholder='Type for hints...']")
+    WebElement costumerNameField;
+    @FindBy(xpath = "(//button[normalize-space()='Search'])[1]")
+    WebElement projectSearchButton;
+    @FindBy(xpath = "(//input[@placeholder='Type for hints...'])[1]")
+    WebElement searchCostumerNameField;
+    @FindBy(xpath = "(//input[@placeholder='Type for hints...'])[2]")
+    WebElement searchProjectNameField;
+    @FindBy(xpath = "(//input[@placeholder='Type for hints...'])[3]")
+    WebElement searchProjectAdminNameField;
+    @FindBy(xpath = "//h5[@class='oxd-text oxd-text--h5 oxd-table-filter-title']")
+    WebElement projectSlideTitle;
+    @FindBy(xpath = "(//div[@role='option']/span)[1]")
+    WebElement firstOptionFromCostumerNameField;
+    @FindBy(xpath = "(//input[@placeholder='Type for hints...'])[2]")
+    WebElement projectAdminNameField;
+    @FindBy(xpath = "//span[text()='Project Info ']")
+    WebElement projectInfoDropdown;
+    @FindBy(xpath = "(//li/a[@role='menuitem'])[1]")
+    WebElement costumers;
+    @FindBy(xpath = "(//li/a[@role='menuitem'])[2]")
+    WebElement projects;
+    @FindBy(xpath = "//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message']")
+    WebElement massageUnderCostumerNameField;
 
     public void viewTimeSheetsOfAnEmployee(String employeeName) throws Exception {
         clickOn(TimeFromMenu);
@@ -134,12 +159,8 @@ public class TimePage extends CommonAPI {
 
     }
 
-    @FindBy(xpath = "//span[text()='Project Info ']")
-    WebElement projectInfoDropdown;
-    @FindBy(xpath = "(//li/a[@role='menuitem'])[1]")
-    WebElement costumers;
-    @FindBy(xpath = "(//li/a[@role='menuitem'])[2]")
-    WebElement projects;
+
+
 
     public void addCostumer(String str) throws InterruptedException {
         clickOn(TimeFromMenu);
@@ -153,34 +174,22 @@ public class TimePage extends CommonAPI {
         LOG.info("we are successfully landed to the add Customer page ");
         typeText(nameField, str);
         Thread.sleep(2000);
-        clickOn(saveButton);
-        Thread.sleep(3000);
-        Assert.assertEquals(getTextFromElement(toastMessage), "Successfully Saved");
-        LOG.info("we are successfully added a new Customer ");
-        Thread.sleep(2000);
-        LOG.info("After adding an Customer: " + getTextFromElement(recordsFound));
-
+        try {
+            Assert.assertEquals(getTextFromElement(massageUnderCostumerNameField), "Already exists");
+            LOG.info("This Customer: "+str+" already exists");
+        }catch (Exception e) {
+            clickOn(saveButton);
+            Thread.sleep(3000);
+            Assert.assertEquals(getTextFromElement(toastMessage), "Successfully Saved");
+            LOG.info("we are successfully added a new Customer ");
+            Thread.sleep(2000);
+            LOG.info("After adding an Customer: " + getTextFromElement(recordsFound));
+        }
 
     }
-    @FindBy(xpath = "(//input[@class='oxd-input oxd-input--active'])[2]")
-    WebElement projectNameField;
-    @FindBy(xpath = "//input[@placeholder='Type for hints...']")
-    WebElement costumerNameField;
-    @FindBy(xpath = "(//button[normalize-space()='Search'])[1]")
-    WebElement projectSearchButton;
-    @FindBy(xpath = "(//input[@placeholder='Type for hints...'])[1]")
-    WebElement searchCostumerNameField;
-    @FindBy(xpath = "(//input[@placeholder='Type for hints...'])[2]")
-    WebElement searchProjectNameField;
-    @FindBy(xpath = "(//input[@placeholder='Type for hints...'])[3]")
-    WebElement searchProjectAdminNameField;
 
-@FindBy(xpath = "//h5[@class='oxd-text oxd-text--h5 oxd-table-filter-title']")
-WebElement projectSlideTitle;
-    @FindBy(xpath = "(//div[@role='option']/span)[1]")
-    WebElement firstOptionFromCostumerNameField;
 
-    public void addProject(String str1,String str2) throws InterruptedException {
+    public void addProject(String str1,String str2,String str3) throws InterruptedException {
         clickOn(TimeFromMenu);
         clickOn(projectInfoDropdown);
         clickOn(projects);
@@ -194,20 +203,24 @@ WebElement projectSlideTitle;
         typeText(projectNameField, str1);
         Thread.sleep(2000);
         typeText(costumerNameField, str2);
-
-
         Thread.sleep(3000);
         arrowDownOnce(costumerNameField);
         clickOn(firstOptionFromCostumerNameField);
-
+        typeText(projectAdminNameField, str3);
+        Thread.sleep(3000);
+        arrowDownOnce(projectAdminNameField);
+        clickOn(firstOptionFromCostumerNameField);
         Thread.sleep(2000);
         clickOn(saveButton);
         Thread.sleep(3000);
-        Assert.assertEquals(getTextFromElement(toastMessage), "Successfully Saved");
-        LOG.info("we are successfully added a new project ");
-        Thread.sleep(2000);
-        LOG.info("After adding an new project: " + getTextFromElement(recordsFound));
-
+        try {
+            Assert.assertEquals(getTextFromElement(toastMessage), "Successfully Saved");
+            LOG.info("we are successfully added a new project ");
+            Thread.sleep(2000);
+            LOG.info("After adding an new project: " + getTextFromElement(recordsFound));
+        }catch (Exception e){
+            LOG.info(str1 +" project, already created");
+        }
 
     }
     public void filterProjectsByGivenCustomerName(String costumerName) throws InterruptedException {
@@ -320,6 +333,7 @@ WebElement projectSlideTitle;
 
 
     }
+
 
 
 }

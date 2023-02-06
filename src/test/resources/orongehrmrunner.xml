@@ -28,10 +28,46 @@
 <!--        </groups>-->
         <classes>
 <!--                            <class name="com.orangeHRM.test.TestLogin"></class>-->
-<!--            <class name="com.orangeHRM.test.TestMenuPimEmployeeList"></class>-->
-<!--            <class name="com.orangeHRM.test.TestMenuAdminNationality"></class>-->
+<!--            <class name="com.orangehrm.test.TestMenuPimEmployeeList">-->
+<!--                <methods>-->
+<!--                    <include name="addUsersTest"/>-->
+<!--                    <include name="searchEmployeeByEnteringTheIdTest"/>-->
+<!--                    <include name="searchEmployeeByEnteringTheEmployeeNameTest"/>-->
+<!--                    <include name="searchEmployeeByEnteringTheSupervisorNameTest"/>-->
+<!--                    <include name="searchEmployeeByEnteringTheEmploymentStatusTest"/>-->
+<!--                    <include name="searchEmployeeByEnteringTheJobTitleTest"/>-->
+<!--                    <include name="searchEmployeeByEnteringTheSubUnitTest"/>-->
+<!--                    <include name="searchEmployeeByEnteringTheIncludeTest"/>-->
+<!--                    <include name="searchEmployeeByEnteringTheIncludeAndSubUnitTest"/>-->
+<!--                    <include name="searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleTest"/>-->
+<!--                    <include name="searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleAndEmploymentStatusTest"/>-->
+<!--                    <include name="resetSearchEmployeeTest"/>-->
+<!--                    <include name="TestVisibilityDeleteSelectedButton"/>-->
+<!--                    <include name="editePersonalDetailsOfAnEmployeeTest"/>-->
+<!--                    <include name="editeProfilePictureOfAnEmployeesTest"/>-->
+<!--                    <include name="addAnAttachmentToAnEmployeesInformationTest"/>-->
+<!--                    <include name="TestDeleteUserUsingTrashLogo"/>-->
+<!--                    <include name="TestDeleteUserUsingDeleteSelectedButton"/>-->
+<!--                    <include name="addUsersTest"/>-->
+<!--                    <include name="TestDeleteAllTheUsers"/>-->
+<!--                </methods>-->
+
+<!--            </class>-->
+<!--            <class name="com.orangeHRM.test.TestMenuAdminNationality">-->
+<!--                <methods>-->
+<!--                    <include name="TestDeleteNationalityUsingUsingDeleteSelectedButton"/>-->
+<!--                </methods>-->
+<!--            </class>-->
 <!--            <class name="com.orangeHRM.test.TestLogOut"></class>-->
-<!--            <class name="com.orangeHRM.test.TestLeaveList"></class>-->
+
+            <class name="com.orangeHRM.test.TestLeaveList">
+<!--                <methods>-->
+<!--                    <include name="assignLeaveRequestTest"/>-->
+<!--                    <include name="RejectAllLeaveRequestsTest"/>-->
+
+<!--                </methods>-->
+            </class>
+
 <!--            <class name="com.orangeHRM.test.TestTimeTimeSheets"></class>-->
 <!--            <class name="com.orangeHRM.test.TestAttendanceConfiguration"></class>-->
 <!--            <class name="com.orangeHRM.test.TestAdminJobMenu"></class>-->
@@ -40,7 +76,18 @@
 
 
 
-
         </classes>
     </test>
 </suite>
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+        <!--<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">-->
+        <!--<suite name="suite">-->
+        <!--    <suite-files>-->
+        <!--        <suite-file path="resources/orongeHRMrunner.xml "></suite-file>-->
+        <!--        <suite-file path="resources/nopcommerce.xml "></suite-file>-->
+        <!--        -->
+        <!--    &lt;!&ndash;                        <suiteXmlFile>src/test/resources/saucedemorunner.xml</suiteXmlFile>&ndash;&gt;-->
+
+        <!--</suite-files>-->
+        <!--    -->
+        <!--</suite>-->

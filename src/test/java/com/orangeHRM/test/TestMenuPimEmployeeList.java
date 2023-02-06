@@ -8,6 +8,7 @@ import com.orangeHRM.pages.PIMpage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utility.ConnectDB;
 import utility.ReadFromExcel;
@@ -18,13 +19,13 @@ import java.io.File;
 public class TestMenuPimEmployeeList extends CommonAPI {
 
     Logger LOG = LogManager.getLogger( TestMenuPimEmployeeList.class.getName());
-//    @Test
+    String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
+    String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
+    @Test
     public void searchEmployeeByEnteringTheIdTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
@@ -33,65 +34,55 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         piMpage.searchEmployeeByEnteringTheId(Id);
     }
 
-//    @Test
+    @Test
     public void searchEmployeeByEnteringTheEmployeeNameTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
         String  EmployeeName=readFromExcel.getCellValueForGivenHeaderAndKey("key","Employee Name");
         piMpage.searchEmployeeByEnteringTheEmployeeName(EmployeeName);
     }
-//    @Test
+    @Test
     public void searchEmployeeByEnteringTheSupervisorNameTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
         String  SupervisorName=readFromExcel.getCellValueForGivenHeaderAndKey("key","Supervisor Name");
         piMpage.searchEmployeeByEnteringTheSupervisorName(SupervisorName);
     }
-//    @Test
+    @Test
     public void searchEmployeeByEnteringTheEmploymentStatusTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
         String EmploymentStatus=readFromExcel.getCellValueForGivenHeaderAndKey("key","Employment Status");
         piMpage.searchEmployeeByEnteringTheEmploymentStatus(EmploymentStatus);
     }
-//    @Test
+    @Test
     public void searchEmployeeByEnteringTheJobTitleTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
         String  JobTitle=readFromExcel.getCellValueForGivenHeaderAndKey("key","Job Title");
         piMpage.searchEmployeeByEnteringTheJobTitle(JobTitle);
     }
-//    @Test
+    @Test
     public void searchEmployeeByEnteringTheSubUnitTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
@@ -99,26 +90,22 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         piMpage.searchEmployeeByEnteringTheSubUnit(SubUnit);
     }
 
-//    @Test
+    @Test
     public void searchEmployeeByEnteringTheIncludeTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
         String  Include=readFromExcel.getCellValueForGivenHeaderAndKey("key","Include");
         piMpage.searchEmployeeByEnteringTheInclude(Include);
     }
-//    @Test
+    @Test
     public void searchEmployeeByEnteringTheIncludeAndSubUnitTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
@@ -126,13 +113,11 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String  SubUnit=readFromExcel.getCellValueForGivenHeaderAndKey("key","Sub Unit");
         piMpage.searchEmployeeByEnteringTheIncludeAndSubUnit(Include,SubUnit);
     }
-//    @Test
+    @Test
     public void searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
@@ -141,13 +126,11 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String  JobTitle=readFromExcel.getCellValueForGivenHeaderAndKey("key","Job Title");
         piMpage.searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitle(Include,SubUnit,JobTitle);
     }
-//    @Test
+    @Test
     public void searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleAndEmploymentStatusTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
@@ -157,12 +140,10 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String EmploymentStatus=readFromExcel.getCellValueForGivenHeaderAndKey("key","Employment Status");
         piMpage.searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleAndEmploymentStatus(Include,SubUnit,JobTitle,EmploymentStatus);
     }
-//   @Test
+   @Test
    public void resetSearchEmployeeTest () throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         Faker faker=new Faker();
        String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
@@ -176,36 +157,43 @@ public class TestMenuPimEmployeeList extends CommonAPI {
     }
 
 
-//      @Test
-    public void addUsersTest() throws InterruptedException {
+      @Test (dataProvider="EmployeeInfo")
+      public void addUsersTest(String firstName, String Id, String lastName, String fileName) throws InterruptedException, AWTException {
           LoginPage loginPage=new LoginPage(getDriver());
           HomePage homePage=new HomePage(getDriver());
           PIMpage piMpage=new PIMpage(getDriver());
-          String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-          String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
           loginPage.login(userName,password);
           homePage.clickOnPIMFromMenu();
+          Faker faker=new Faker();
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet1");
         String  headerTitle=readFromExcel.getCellValueForGivenHeaderAndKey("key","Header When PIM Selected");
           Assert.assertEquals(piMpage.getHeaderWhenPIMSelected(),headerTitle);
           LOG.info("we are successfully landed in the PIM page");
-        Faker faker=new Faker();
-            piMpage.addUser(faker.name().firstName(),faker.name().lastName());
-            Thread.sleep(2000);
-        String confirmationMessage=readFromExcel.getCellValueForGivenHeaderAndKey("key","Message After Add User");
-          Assert.assertEquals(piMpage.getToastMessageAfterAddUser(),confirmationMessage);
-          LOG.info("the user successfully added");
+            piMpage.addUser(firstName,lastName,fileName,getDriver(),Id);
 
       }
 
-//    @Test
+    @DataProvider(name="EmployeeInfo")
+    public Object[][] getData3(){
+        String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
+        ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet3");
+        int totalRows=9;
+        int totalColumns=4;
+        String employeeInfo[][]=new String[totalRows][totalColumns];
+        for (int i=1; i<=totalRows;i++){
+            for (int j=0;j<totalColumns;j++){
+                employeeInfo[i-1][j]=readFromExcel.getDataFromCell(i,j);
+            }
+        }
+        return employeeInfo;
+    }
+
+    @Test //the fifth in the list of the users
     public void TestDeleteUserUsingTrashLogo() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         homePage.clickOnPIMFromMenu();
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
@@ -224,13 +212,11 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         Thread.sleep(5000);
         LOG.info("The number of the users in Employee list after deleting: "+ piMpage.numberOfEmployeeInList());
     }
-//    @Test
+    @Test //the fifth in the list of the users
     public void TestDeleteUserUsingDeleteSelectedButton() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         homePage.clickOnPIMFromMenu();
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
@@ -250,13 +236,11 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         LOG.info("The number of the users in Employee list after deleting: "+ piMpage.numberOfEmployeeInList());
 
     }
-//    @Test
+    @Test
     public void TestVisibilityDeleteSelectedButton() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         homePage.clickOnPIMFromMenu();
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
@@ -268,13 +252,11 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         piMpage.checkTheVisibilityOfDeleteSelectedButton();
 
     }
-//    @Test
+    @Test //(dependsOnMethods = "addUsersTest",alwaysRun = true)//the fifth in the list of the users
     public void TestDeleteAllTheUsers() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         homePage.clickOnPIMFromMenu();
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
@@ -295,13 +277,11 @@ public class TestMenuPimEmployeeList extends CommonAPI {
 
 
     }
-//    @Test // including edite nick name,SSN and Smoke checkbox for the fifth employee in the list
+    @Test // including edite nick name,SSN and Smoke checkbox for the fifth employee in the list
     public void editePersonalDetailsOfAnEmployeeTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         homePage.clickOnPIMFromMenu();
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
@@ -314,19 +294,18 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         piMpage.editePersonalDetailsOfAnEmployee(nikeName,ssn);
         piMpage.getToastMessageAfterAddUser();
         Thread.sleep(2000);
-        String  messageAfterUpdate=readFromExcel.getCellValueForGivenHeaderAndKey("key","Successfully Updated");
+        String  messageAfterUpdate=readFromExcel.getCellValueForGivenHeaderAndKey("key","Message After updating a User information");
         Assert.assertEquals(piMpage.getToastMessageAfterAddUser(),messageAfterUpdate);
         LOG.info("the personal details successfully edited ");
         Thread.sleep(4000);
 
     }
-//        @Test
+
+        @Test //the fifth in the list of the users
     public void editeProfilePictureOfAnEmployeesTest() throws InterruptedException, AWTException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         homePage.clickOnPIMFromMenu();
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
@@ -337,13 +316,11 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String  pictureFileNane=readFromExcel.getCellValueForGivenHeaderAndKey("key","Profile picture file name");
         piMpage.editeProfilePictureOfAnEmployees(pictureFileNane);
     }
-    @Test
+    @Test //the fifth in the list of the users
     public void addAnAttachmentToAnEmployeesInformationTest() throws InterruptedException, AWTException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
-        String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
-        String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
         loginPage.login(userName,password);
         homePage.clickOnPIMFromMenu();
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";

@@ -1,5 +1,7 @@
 package utility;
 
+import com.github.javafaker.Faker;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -37,6 +39,7 @@ public class Utility {
         String sep = File.separator;
         String path = System.getProperty("user.dir");
         System.out.println(path);
+
     }
 }
 
