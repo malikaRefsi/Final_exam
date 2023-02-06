@@ -27,8 +27,8 @@ public class ResetAppState extends CommonAPI {
         AboutPages aboutPages = new AboutPages(getDriver());
         String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
         String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
         String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
-        //String expectedTitle = "Swag Labs";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
@@ -42,13 +42,15 @@ public class ResetAppState extends CommonAPI {
         LOG.info("Products header successfully displayed ");
 
         cartPage.clickOnAddItem1();
+        Assert.assertTrue(cartPage.checkIfNum1yIsDisplayed());
+
         aboutPages.clickOnmenuButton();
         aboutPages.clickOnRestApp();
         aboutPages.clickOnCrossMenuButton();
         cartPage.clickOnShoppingCart();
 
     }
-    //22
+
     @Test
     public void ResetAfterAddingMultipleItemsTest() throws InterruptedException {
         HomePageF homePageF = new HomePageF(getDriver());
@@ -74,6 +76,8 @@ public class ResetAppState extends CommonAPI {
         cartPage.clickOnAddTItem2();
         cartPage.clickOnAddItem3();
         cartPage.clickOnAdditem4();
+        Assert.assertTrue(cartPage.checkIfNum4IsDisplayed());
+
         aboutPages.clickOnmenuButton();
         aboutPages.clickOnRestApp();
         aboutPages.clickOnCrossMenuButton();

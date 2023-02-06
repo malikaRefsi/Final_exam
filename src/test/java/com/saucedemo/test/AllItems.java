@@ -43,6 +43,7 @@ public class AllItems extends CommonAPI {
         cartPage.clickOnAddTItem2();
         cartPage.clickOnAddItem3();
         cartPage.clickOnAdditem4();
+        Assert.assertTrue(cartPage.checkIfNum4IsDisplayed());
 
         cartPage.clickOnShoppingCart();
         Assert.assertTrue(cartPage.checkIfYourCartHeaderIsDisplayed());
