@@ -15,7 +15,7 @@
     <test name="saucedemo test">
         <classes>
 
-<!--                    <class name="com.saucedemo.test.LogOut"></class>-->
+                    <class name="com.saucedemo.test.LogOut"></class>
 <!--                  <class name="com.saucedemo.test.Cart"></class>-->
 <!--                    <class name="com.saucedemo.test.Register"></class>-->
 <!--                    <class name="com.saucedemo.test.DropDown"></class>-->
