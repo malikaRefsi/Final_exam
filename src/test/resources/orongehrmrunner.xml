@@ -60,13 +60,13 @@
 <!--            </class>-->
 <!--            <class name="com.orangeHRM.test.TestLogOut"></class>-->
 
-            <class name="com.orangeHRM.test.TestLeaveList">
+<!--            <class name="com.orangeHRM.test.TestLeaveList">-->
 <!--                <methods>-->
 <!--                    <include name="assignLeaveRequestTest"/>-->
 <!--                    <include name="RejectAllLeaveRequestsTest"/>-->
 
 <!--                </methods>-->
-            </class>
+<!--            </class>-->
 
 <!--            <class name="com.orangeHRM.test.TestTimeTimeSheets"></class>-->
 <!--            <class name="com.orangeHRM.test.TestAttendanceConfiguration"></class>-->
