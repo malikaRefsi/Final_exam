@@ -32,7 +32,7 @@
 <!--            <class name="com.orangeHRM.test.TestMenuAdminNationality"></class>-->
 <!--            <class name="com.orangeHRM.test.TestLogOut"></class>-->
 <!--            <class name="com.orangeHRM.test.TestLeaveList"></class>-->
-            <class name="com.orangeHRM.test.TestTimeTimeSheets"></class>
+<!--            <class name="com.orangeHRM.test.TestTimeTimeSheets"></class>-->
 <!--            <class name="com.orangeHRM.test.TestAttendanceConfiguration"></class>-->
 <!--            <class name="com.orangeHRM.test.TestAdminJobMenu"></class>-->
 <!--            <class name="com.orangeHRM.test.TestTimeProjectInfo"></class>-->

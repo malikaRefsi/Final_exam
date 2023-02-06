@@ -9,24 +9,29 @@ import com.saucedemo.pages.AboutPages;
 import com.saucedemo.pages.CartPage;
 import com.saucedemo.pages.HomePageF;
 import utility.ConnectDB;
+import utility.ReadFromExcel;
+
+import java.io.File;
 
 public class About extends CommonAPI {
 
     Logger LOG = LogManager.getLogger(About.class.getName());
+    //ReadFromExcel read = new ReadFromExcel("C:\\Users\\12016\\eclipse-workspace\\Final_exam\\data\\fariData.xlsx", "sheetN1");
+    String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"fariData.xlsx";
+    ReadFromExcel read = new ReadFromExcel(filePath, "sheetN1");
 
-    //21
     @Test
     public void menuTest() throws InterruptedException {
         HomePageF homePageF = new HomePageF(getDriver());
-        CartPage cartPage = new CartPage(getDriver());
         AboutPages aboutPages = new AboutPages(getDriver());
-        String username = ConnectDB.getTableColumnData("select * from cred", "username").get(2);
-        String password = ConnectDB.getTableColumnData("select * from cred", "password").get(2);
-        String expectedTitle = "Swag Labs";
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
-        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());
         LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
@@ -38,22 +43,20 @@ public class About extends CommonAPI {
         aboutPages.clickOnmenuButton();
         aboutPages.clickOnCrossMenuButton();
     }
-    //24
+
     @Test
     public void AboutTest () throws InterruptedException {
         HomePageF homePageF = new HomePageF(getDriver());
-        CartPage cartPage = new CartPage(getDriver());
         AboutPages aboutPages = new AboutPages(getDriver());
-        String username = ConnectDB.getTableColumnData("select * from cred", "username").get(2);
-        String password = ConnectDB.getTableColumnData("select * from cred", "password").get(2);
-        String expectedTitle = "Swag Labs";
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
-        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());
         LOG.info("SwagLabs logo successfully displayed ");
-
-
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
@@ -71,19 +74,18 @@ public class About extends CommonAPI {
 
     }
 
-    //25
     @Test
     public void searchBarTest () throws InterruptedException {
         HomePageF homePageF = new HomePageF(getDriver());
-        CartPage cartPage = new CartPage(getDriver());
         AboutPages aboutPages = new AboutPages(getDriver());
-        String username = ConnectDB.getTableColumnData("select * from cred", "username").get(2);
-        String password = ConnectDB.getTableColumnData("select * from cred", "password").get(2);
-        String expectedTitle = "Swag Labs";
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
-        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());
         LOG.info("SwagLabs logo successfully displayed ");
 
 
@@ -98,19 +100,18 @@ public class About extends CommonAPI {
         aboutPages.clickOnSearch();
         aboutPages.typeAndEnterOnSearchBar("sauce");
     }
-    //26
     @Test
     public void AboutVideo () throws InterruptedException {
         HomePageF homePageF = new HomePageF(getDriver());
-        CartPage cartPage = new CartPage(getDriver());
         AboutPages aboutPages = new AboutPages(getDriver());
-        String username = ConnectDB.getTableColumnData("select * from cred", "username").get(2);
-        String password = ConnectDB.getTableColumnData("select * from cred", "password").get(2);
-        String expectedTitle = "Swag Labs";
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
-        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());
         LOG.info("SwagLabs logo successfully displayed ");
 
 
@@ -131,17 +132,16 @@ public class About extends CommonAPI {
     @Test
     public void HoverOverCampany () throws InterruptedException {
         HomePageF homePageF = new HomePageF(getDriver());
-        CartPage cartPage = new CartPage(getDriver());
         AboutPages aboutPages = new AboutPages(getDriver());
-        String username = ConnectDB.getTableColumnData("select * from cred", "username").get(2);
-        String password = ConnectDB.getTableColumnData("select * from cred", "password").get(2);
-        String expectedTitle = "Swag Labs";
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
-        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());
         LOG.info("SwagLabs logo successfully displayed ");
-
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);
@@ -151,10 +151,89 @@ public class About extends CommonAPI {
 
         aboutPages.clickOnmenuButton();
         aboutPages.clickOnAboutButton();
-        Thread.sleep(2000);
         aboutPages.hoverOverComp(getDriver());
-        Thread.sleep(2000);
+
     }
+    @Test
+    public void hoverOverPlatform() throws InterruptedException {
+        HomePageF homePageF = new HomePageF(getDriver());
+        AboutPages aboutPages = new AboutPages(getDriver());
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");;
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());;
+        LOG.info("SwagLabs logo successfully displayed ");
+
+        homePageF.typeusername(username);
+        homePageF.typepassword(password);
+        homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
+        aboutPages.clickOnmenuButton();
+        aboutPages.clickOnAboutButton();
+        aboutPages.hoverOverPlatform(getDriver());
+    }
+
+
+    @Test
+    public void hoverOverSolutions() throws InterruptedException {
+        HomePageF homePageF = new HomePageF(getDriver());
+        AboutPages aboutPages = new AboutPages(getDriver());
+
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
+
+        homePageF.typeusername(username);
+        homePageF.typepassword(password);
+        homePageF.clickOnLoginButon();
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
+        aboutPages.clickOnmenuButton();
+        aboutPages.clickOnAboutButton();
+        aboutPages.hoverOverSolutions(getDriver());
+
+    }
+
+    @Test
+    public void clickOnPricing() throws InterruptedException {
+        HomePageF homePageF = new HomePageF(getDriver());
+        AboutPages aboutPages = new AboutPages(getDriver());
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        LOG.info("land to saucedemo success");
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());
+        LOG.info("SwagLabs logo successfully displayed ");
+
+        homePageF.typeusername(username);
+        homePageF.typepassword(password);
+        homePageF.clickOnLoginButon();
+
+        Assert.assertTrue(homePageF.checkIfProductsIsDisplayed());
+        LOG.info("Products header successfully displayed ");
+
+        aboutPages.clickOnmenuButton();
+        aboutPages.clickOnAboutButton();
+        aboutPages.clickOnPricing();
+
+    }
+
 
 }
 
