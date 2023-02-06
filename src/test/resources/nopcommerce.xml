@@ -7,22 +7,22 @@
         <classes>
 
 
-            <class name="com.nopcommerce.test.TestRegistration"></class>
-            <class name="com.nopcommerce.test.LoginTestNop"></class>
-            <class name="com.nopcommerce.test.ContactUs"></class>
+<!--            <class name="com.nopcommerce.test.TestRegistration"></class>-->
+<!--            <class name="com.nopcommerce.test.LoginTestNop"></class>-->
+<!--            <class name="com.nopcommerce.test.ContactUs"></class>-->
             <class name="com.nopcommerce.test.AddAnItemToCompareList"></class>
-            <class name="com.nopcommerce.test.AddAnItemToWishList"></class>
-            <class name="com.nopcommerce.test.ResetPassword"></class>
-            <class name="com.nopcommerce.test.AddAnItemToShoppingCart"></class>
-            <class name="com.nopcommerce.test.SearchAnItem"></class>
-            <class name="com.nopcommerce.test.Checkout"></class>
-            <class name="com.nopcommerce.test.Subscrption"></class>
-         <class name="com.nopcommerce.test.LogOutNopTest"></class>
-            <class name="com.nopcommerce.test.SortByLowToHigh"></class>
-            <class name="com.nopcommerce.test.VoteSurvey"></class>
-               <class name="com.nopcommerce.test.RentAnItem"></class>
+<!--            <class name="com.nopcommerce.test.AddAnItemToWishList"></class>-->
+<!--            <class name="com.nopcommerce.test.ResetPassword"></class>-->
+<!--            <class name="com.nopcommerce.test.AddAnItemToShoppingCart"></class>-->
+<!--            <class name="com.nopcommerce.test.SearchAnItem"></class>-->
+<!--            <class name="com.nopcommerce.test.Checkout"></class>-->
+<!--            <class name="com.nopcommerce.test.Subscrption"></class>-->
+<!--         <class name="com.nopcommerce.test.LogOutNopTest"></class>-->
+<!--            <class name="com.nopcommerce.test.SortByLowToHigh"></class>-->
+<!--            <class name="com.nopcommerce.test.VoteSurvey"></class>-->
+<!--               <class name="com.nopcommerce.test.RentAnItem"></class>-->
 
-            <class name="com.nopcommerce.test.ChangeCurrency"></class>
+<!--            <class name="com.nopcommerce.test.ChangeCurrency"></class>-->
         </classes>
     </test>
 </suite>

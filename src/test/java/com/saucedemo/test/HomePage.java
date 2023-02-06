@@ -7,21 +7,27 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.saucedemo.pages.HomePageF;
 import utility.ConnectDB;
+import utility.ReadFromExcel;
+
+import java.io.File;
 
 public class HomePage extends CommonAPI {
 
     Logger LOG = LogManager.getLogger(Register.class.getName());
-    //17
+    String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"fariData.xlsx";
+    ReadFromExcel read = new ReadFromExcel(filePath, "sheetN1");
+
     @Test
     public void twitterTest() throws InterruptedException {
         HomePageF homePageF = new HomePageF(getDriver());
-        String username = ConnectDB.getTableColumnData("select * from cred", "username").get(2);
-        String password = ConnectDB.getTableColumnData("select * from cred", "password").get(2);
-        String expectedTitle = "Swag Labs";
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
-        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());
         LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
@@ -34,17 +40,17 @@ public class HomePage extends CommonAPI {
 
 
     }
-    //17
     @Test
     public void facebookTest() throws InterruptedException {
         HomePageF homePageF = new HomePageF(getDriver());
-        String username = ConnectDB.getTableColumnData("select * from cred", "username").get(2);
-        String password = ConnectDB.getTableColumnData("select * from cred", "password").get(2);
-        String expectedTitle = "Swag Labs";
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
-        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());
         LOG.info("SwagLabs logo successfully displayed ");
 
         homePageF.typeusername(username);
@@ -57,19 +63,19 @@ public class HomePage extends CommonAPI {
 
 
     }
-    //18
+
     @Test
     public void linkedinTest() throws InterruptedException {
         HomePageF homePageF = new HomePageF(getDriver());
-        String username = ConnectDB.getTableColumnData("select * from cred", "username").get(2);
-        String password = ConnectDB.getTableColumnData("select * from cred", "password").get(2);
-        String expectedTitle = "Swag Labs";
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
+
+        String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
-        Assert.assertTrue(homePageF.checkIfLogoIsDisplayed());
+        Assert.assertTrue(homePageF.checkIfLogoSwagIsDisplayed());
         LOG.info("SwagLabs logo successfully displayed ");
-
 
         homePageF.typeusername(username);
         homePageF.typepassword(password);

@@ -12,12 +12,11 @@ import org.openqa.selenium.support.PageFactory;
 public class AboutPages extends CommonAPI {
     Logger LOG = LogManager.getLogger(AboutPages.class.getName());
 
-    // Logger LOG = LogManager.getLogger(HomePage.class.getName());
     public AboutPages(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    //01
+
     //LabsBackup
     @FindBy(css = "#react-burger-menu-btn")
     WebElement menuButton;
@@ -40,7 +39,7 @@ public class AboutPages extends CommonAPI {
     //span[text() = 'Play']
     @FindBy(css = "#mktoCheckbox_32812_0")
     WebElement checkBox;
-    //span[text() = 'Play']
+
     @FindBy(xpath = "//span[text() = 'Contact sales']")
     WebElement contactSale;
 
@@ -52,6 +51,13 @@ public class AboutPages extends CommonAPI {
 
     @FindBy(css = "#inventory_sidebar_link")
     WebElement allItems;
+    @FindBy(xpath = "//body[1]/header[1]/div[1]/nav[1]/ul[1]/li[1]/ul[2]/li[3]/div[1]/div[1]/a[1]/span[1]")
+    WebElement pricing;
+    @FindBy(xpath = "//header/div[1]/nav[1]/ul[1]/li[1]/ul[2]/li[1]/div[1]/div[1]/a[1]")
+    WebElement solutions;
+
+    @FindBy(xpath = "//header/div[1]/nav[1]/ul[1]/li[1]/ul[2]/li[2]/div[1]/div[1]/a[1]")
+    WebElement platform;
 
 
     public void clickOnmenuButton() {
@@ -89,11 +95,10 @@ public class AboutPages extends CommonAPI {
         LOG.info("click on play video button button success");
     }
 
-    public void  checkBox() {
+    public void checkBox() {
         clickOn(checkBox);
         LOG.info("checkBox  success");
     }
-
 
 
     public void contactSale() {
@@ -115,10 +120,22 @@ public class AboutPages extends CommonAPI {
         clickOn(allItems);
         LOG.info("click on all items success");
     }
-    public void scroll () {
-        JavascriptExecutor js=(JavascriptExecutor) driver;
-        js.executeScript("arguments[0].value=",checkBox);
+
+
+    public void hoverOverSolutions(WebDriver driver) {
+        hoverOver(driver, solutions);
+        LOG.info("hover over solutions success");
+    }
+
+    public void hoverOverPlatform(WebDriver driver) {
+        hoverOver(driver, platform);
+        LOG.info("hover over platform success");
+    }
+
+    public void clickOnPricing() {
+        clickOn(pricing);
+        LOG.info("click on pricing success");
+
     }
 }
-
 

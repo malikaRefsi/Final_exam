@@ -59,6 +59,7 @@
 <!--                </methods>-->
 <!--            </class>-->
 <!--            <class name="com.orangeHRM.test.TestLogOut"></class>-->
+
             <class name="com.orangeHRM.test.TestLeaveList">
 <!--                <methods>-->
 <!--                    <include name="assignLeaveRequestTest"/>-->
@@ -66,6 +67,7 @@
 
 <!--                </methods>-->
             </class>
+
 <!--            <class name="com.orangeHRM.test.TestTimeTimeSheets"></class>-->
 <!--            <class name="com.orangeHRM.test.TestAttendanceConfiguration"></class>-->
 <!--            <class name="com.orangeHRM.test.TestAdminJobMenu"></class>-->

@@ -36,6 +36,8 @@ public class HomePageF extends CommonAPI {
     @FindBy(xpath = "//h3[@data-test='error']")
     WebElement errormessage;
     //03
+
+
     @FindBy(xpath = "//h3[@data-test='error']")
     WebElement errormessagenNocredentials;
 
@@ -80,8 +82,6 @@ public class HomePageF extends CommonAPI {
         LOG.info("select from dropdown success");
     }
 
-
-
     public void typeusername(String text) {
         typeText(userNameField, text);
         LOG.info("username sent success");
@@ -95,7 +95,7 @@ public class HomePageF extends CommonAPI {
         LOG.info("click login button success");
     }
 
-    public boolean checkIfLogoIsDisplayed() {
+    public boolean checkIfLogoSwagIsDisplayed() {
         return checkIfElementIsDisplayed(logoSwgLabs);
     }
 
