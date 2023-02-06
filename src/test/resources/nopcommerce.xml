@@ -10,7 +10,7 @@
 <!--            <class name="com.nopcommerce.test.TestRegistration"></class>-->
 <!--            <class name="com.nopcommerce.test.LoginTestNop"></class>-->
 <!--            <class name="com.nopcommerce.test.ContactUs"></class>-->
-            <class name="com.nopcommerce.test.AddAnItemToCompareList"></class>
+<!--            <class name="com.nopcommerce.test.AddAnItemToCompareList"></class>-->
 <!--            <class name="com.nopcommerce.test.AddAnItemToWishList"></class>-->
 <!--            <class name="com.nopcommerce.test.ResetPassword"></class>-->
 <!--            <class name="com.nopcommerce.test.AddAnItemToShoppingCart"></class>-->

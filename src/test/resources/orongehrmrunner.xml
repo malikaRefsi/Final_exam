@@ -71,7 +71,7 @@
 <!--            <class name="com.orangeHRM.test.TestTimeTimeSheets"></class>-->
 <!--            <class name="com.orangeHRM.test.TestAttendanceConfiguration"></class>-->
 <!--            <class name="com.orangeHRM.test.TestAdminJobMenu"></class>-->
-<!--            <class name="com.orangeHRM.test.TestTimeProjectInfo"></class>-->
+            <class name="com.orangeHRM.test.TestTimeProjectInfo"></class>
 
 
 
