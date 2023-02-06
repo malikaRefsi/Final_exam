@@ -6,7 +6,6 @@ import com.orangeHRM.pages.LoginPage;
 import com.orangeHRM.pages.TimePage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.Test;
 import utility.ConnectDB;
 
 public class TestAttendanceConfiguration extends CommonAPI {

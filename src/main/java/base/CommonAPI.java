@@ -8,6 +8,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -44,14 +46,15 @@ public class CommonAPI {
     Logger LOG = LogManager.getLogger(CommonAPI.class.getName());
 
     String takeScreenshot = Utility.getProperties().getProperty("take.screenshot", "false");
+    String headlessMode = Utility.getProperties().getProperty("headless.mode", "false");
     String maximizeBrowser = Utility.getProperties().getProperty("browser.maximize", "true");
     String implicitWait = Utility.getProperties().getProperty("implicit.wait", "10");//take this value by default if we did not include the implicit.wait in properties
     /********************************************************/
-    String username=Utility.decode(Utility.getProperties().getProperty("browserstack.userName.mr"));
-    String password =Utility.decode(Utility.getProperties().getProperty("browserstack.passWord.mr"));
+//    String username=Utility.decode(Utility.getProperties().getProperty("browserstack.userName.mr"));
+//    String password =Utility.decode(Utility.getProperties().getProperty("browserstack.passWord.mr"));
 
-     //String username=Utility.decode(Utility.getProperties().getProperty("browserstack.username"));
-     //String password =Utility.decode(Utility.getProperties().getProperty("browserstack.password"));
+     String username=Utility.decode(Utility.getProperties().getProperty("browserstack.username"));
+     String password =Utility.decode(Utility.getProperties().getProperty("browserstack.password"));
     public WebDriver driver;//created outside to make it global
 
     /***************************************************************/
@@ -115,15 +118,16 @@ public class CommonAPI {
     }
     /********************************************************************/
     public void getLocalDriver(String browserName) {
-        if (browserName.equalsIgnoreCase("chrome")) {
-            //how to iniciate a draver
-            // WebDriverManager.chromedriver().setup(); //this it does which computer we are using and grab the dependency//after adding the dependency WebDriverManager we replace System.setProperty("webdriver.chromedriver","C:\\Users\\Malika Refsi\\IdeaProjects\\AutomationProject1\\driver");
-            // this line set the location where the location where the chromedriver is located
-            driver = new ChromeDriver();// create an instance of the web driver
+        ChromeOptions options = new ChromeOptions();
+        if (browserName.equalsIgnoreCase("chrome")){
+            driver = new ChromeDriver(options.setHeadless(Boolean.parseBoolean(headlessMode)));
+
         } else if (browserName.equalsIgnoreCase("firefox")) {
             //WebDriverManager.firefoxdriver().setup();//this statement can be deleted if we are using 4.6 or more selenium's version
             driver = new FirefoxDriver();
-        }
+        } else if (browserName.equalsIgnoreCase("edge")) {
+        driver = new EdgeDriver();
+    }
     }
 
     public void getCloudDriver(String envName,String os,String osVersion,String browser,String browserVersion, String username, String password) throws MalformedURLException {
@@ -259,6 +263,7 @@ public class CommonAPI {
         //Thread.sleep(3000);
     }
 
+
     public void scrollToElement(WebDriver driver, WebElement element) throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", element);
@@ -311,7 +316,7 @@ public class CommonAPI {
     /*********************************************************************************/
     /**********************************************************************************/
     public void selectOptionFromDropdownF(WebElement dropdown, String option) {
-        Select select = new Select(dropdown);//to put in drop dwon
+        Select select = new Select(dropdown);//to put in drop down
         try {
             select.selectByVisibleText(option);
         } catch (Exception e) {
