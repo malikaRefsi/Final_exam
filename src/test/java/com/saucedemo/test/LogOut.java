@@ -11,10 +11,14 @@ import com.saucedemo.pages.HomePageF;
 import utility.ConnectDB;
 import utility.ReadFromExcel;
 
+import java.io.File;
+
 public class LogOut extends CommonAPI {
     Logger LOG = LogManager.getLogger(LogOut.class.getName());
-   ReadFromExcel read = new ReadFromExcel("C:\\Users\\12016\\eclipse-workspace\\Final_exam\\data\\fariData.xlsx", "sheetN1");
-    //20
+    String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"fariData.xlsx";
+   ReadFromExcel read = new ReadFromExcel(filePath, "sheetN1");
+
+   //20
 
     @Test
     public void LogOutTest () throws InterruptedException {
@@ -22,11 +26,11 @@ public class LogOut extends CommonAPI {
         CartPage cartPage = new CartPage(getDriver());
         AboutPages aboutPages = new AboutPages(getDriver());
 
-        String username = ConnectDB.getTableColumnData("select * from cred", "username").get(2);
-        String password = ConnectDB.getTableColumnData("select * from cred", "password").get(2);
+        String username = ConnectDB.getTableColumnData("select * from credf", "username").get(0);
+        String password = ConnectDB.getTableColumnData("select * from credf", "password").get(0);
         String expectedTitle = read.getCellValueForGivenHeaderAndKey("key", "homepage title");
 
-       // String expectedTitle = "Swag Labs";
+//        String expectedTitle = "Swag Labs";
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
         LOG.info("land to saucedemo success");
