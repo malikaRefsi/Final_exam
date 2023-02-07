@@ -10,12 +10,32 @@ public class VoteSurvey  extends CommonAPI {
     Logger LOG = LogManager.getLogger(ResetPassword.class.getName());
 
     @Test
-    public void votesurvey() throws InterruptedException {
-        PageHome pH = new PageHome(getDriver());
-        pH.pressOnVote();
-        Thread.sleep(2000);
+    public void voteExcellent() throws InterruptedException {
+        PageHome pagehome = new PageHome(getDriver());
+        pagehome.pressOnVote();
+
 
     }
+
+    @Test
+    public void voteGood() throws InterruptedException {
+        PageHome pagehome = new PageHome(getDriver());
+        pagehome.voteGood();
+    }
+
+    @Test
+    public void votePoor() throws InterruptedException {
+        PageHome pagehome = new PageHome(getDriver());
+        pagehome.votePoor();
+    }
+
+    @Test
+    public void voteVeryBad() throws InterruptedException {
+        PageHome pagehome = new PageHome(getDriver());
+        pagehome.voteVeryBad();
+    }
 }
+
+
 
 

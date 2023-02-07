@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ISelect;
+import org.openqa.selenium.support.ui.Select;
 
 public class PageHome extends CommonAPI {
     Logger LOG = LogManager.getLogger(PageHome.class.getName());
@@ -47,12 +49,23 @@ public class PageHome extends CommonAPI {
 
     }
 
-    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div/div[3]/div/div[1]/div/div/a/img")
+    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[2]/a")
     WebElement electronicsLnk;
 
-    public void clickOnElectronicsLnk() {
-        clickOn(electronicsLnk);
+
+    public void selectElectronics() {
+
+        electronicsLnk.click();
+        LOG.info("select from dropdown success");
     }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement cameraheader;
+
+    public boolean checkIfCameraDisplayed() {
+        return cameraheader.isDisplayed();
+    }
+
 //@FindBy(xpath="/html/body/div[6]/div[1]/div[1]/div[1]")
 //WebElement euroLnk;
 //    public void clickOnEuro(){
@@ -69,8 +82,13 @@ public class PageHome extends CommonAPI {
     WebElement registerLink;
     @FindBy(xpath = "/html/body/div[6]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")
     WebElement loginLink;
-    @FindBy(xpath = "/html/body/div[6]/div[1]/div[1]/div[2]/div[1]/ul/li[3]/a/span[1]")
+    @FindBy(xpath = "//*[@id=\"bar-notification\"]/div/p/a")
     WebElement wishlistLink;
+
+    public void clickOnWish() {
+        wishlistLink.click();
+    }
+
     @FindBy(xpath = "//*[@id=\"bar-notification\"]/div/p/a")
     WebElement shoppingCartLink;
     @FindBy(xpath = "//*[@id=\"small-searchterms\"]")
@@ -93,6 +111,21 @@ public class PageHome extends CommonAPI {
     public void searchStore(String store) {
         searchstore.sendKeys(store);
     }
+
+    @FindBy(xpath = "/html/body/div[6]/div[4]/div[1]/div[2]/ul/li[4]/a")
+    WebElement reviewed;
+
+    public void clickOnrecently() {
+        reviewed.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div/div[2]/h2/a")
+    WebElement macbookComputer;
+
+    public boolean checkIfMacBook() {
+        return macbookComputer.isDisplayed();
+    }
+
 
     //    public void typeItemToSearch(String item){
 //        type(searchStore, item);
@@ -130,25 +163,183 @@ public class PageHome extends CommonAPI {
         LOG.info("click on register button success");
     }
 
-@FindBy(xpath = "//*[@id=\"newsletter-email\"]")
+    @FindBy(xpath = "//*[@id=\"newsletter-email\"]")
     WebElement subLnk;
-    public void enterEmail(String email){
+
+    public void enterEmail(String email) {
         subLnk.sendKeys(email);
     }
-    @FindBy(xpath="//*[@id=\"newsletter-subscribe-button\"]")
+
+    @FindBy(xpath = "//*[@id=\"newsletter-subscribe-button\"]")
     WebElement subButton;
-    public void clickOnSub(){
+
+    public void clickOnSub() {
         clickOn(subButton);
     }
 
-@FindBy(xpath= "//*[@id=\"poll-block-1\"]/ul/li[1]")
-WebElement excellent;
-    public void pressOnVote(){
+    @FindBy(xpath = "//*[@id=\"poll-block-1\"]/ul/li[1]")
+    WebElement excellent;
+
+    public void pressOnVote() {
         clickOn(excellent);
     }
-    @FindBy(xpath="//*[@id=\"vote-poll-1\"]")
+
+    @FindBy(xpath = "//*[@id=\"vote-poll-1\"]")
     WebElement voteB;
-    public void clickVote(){
+
+    public void clickVote() {
         clickOn(voteB);
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div[2]/div[1]/div[2]/form/div[1]")
+    WebElement message404;
+
+
+    public String readReturnedMsg() {
+        return welcome.getText();
+    }
+
+    public String registredEmail() {
+        return message404.getText();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[1]/div/div[1]/div/h2")
+    WebElement camera;
+
+    public void clickOncamera() {
+        camera.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[1]/div/div[2]/div/h2")
+    WebElement cellphonesoption;
+
+    public void clickOncell() {
+        cellphonesoption.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement cellheader;
+
+    public boolean checkIfCellIsDisplayed() {
+        return cellheader.isDisplayed();
+
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[1]/div/div[3]/div/h2")
+    WebElement othersoption;
+
+    public void clickOnOthers() {
+        othersoption.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement othersHeader;
+
+    public boolean checkIfOthersIsDisplayed() {
+        return othersHeader.isDisplayed();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[1]")
+    WebElement Computerlnk;
+
+    public void clickOnComputer() {
+        Computerlnk.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[1]/div/div[1]/div/h2")
+    WebElement desktopsoption;
+
+    public void clickOnDesktops() {
+        desktopsoption.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement desktopsheader;
+
+    public boolean checkIfDesktop() {
+        return desktopsheader.isDisplayed();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement software;
+
+    public void clickOnSoftware() {
+        software.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement softwareDisplay;
+
+    public boolean checkIfSoftwareIsDisplayed() {
+        return softwareDisplay.isDisplayed();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement notebookoption;
+
+    public void clickOnNoteBook() {
+        notebookoption.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement notebookdisplayed;
+
+    public boolean checkIfNoteBookDisplay() {
+        return notebookdisplayed.isDisplayed();
+    }
+
+    @FindBy(xpath = "//*[@id=\"poll-block-1\"]/ul/li[2]/label")
+    WebElement good;
+
+    public void voteGood() {
+        good.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"poll-block-1\"]/ul/li[3]/label")
+    WebElement poor;
+
+    public void votePoor() {
+        poor.click();
+    }
+    @FindBy(xpath = "//*[@id=\"poll-block-1\"]/ul/li[4]/label")
+    WebElement verybad;
+
+    public void voteVeryBad() {
+        verybad.click();
+    }
+    @FindBy(xpath="/html/body/div[6]/div[2]/ul[1]/li[3]/a")
+    WebElement apparel;
+    public void clickOnApparel(){
+        apparel.click();
+    }
+    @FindBy(xpath="/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[1]/div/div[1]/div/h2")
+    WebElement shoes;
+    public void clickOnShoes(){
+        shoes.click();
+    }
+    @FindBy(xpath="/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement ShoesDi;
+    public boolean checkIfShoesDisplayed(){
+        return ShoesDi.isDisplayed();
+    }
+    @FindBy(xpath="/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[1]/div/div[2]/div/h2")
+    WebElement clothing;
+    public void clickOnclothing(){
+        clothing.click();
+    }
+    @FindBy(xpath="/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement clothingdisplay;
+    public boolean checkIfclothingdisplayed(){
+        return clothingdisplay.isDisplayed();
+    }
+    @FindBy(xpath="/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[1]/div/div[3]/div/h2")
+    WebElement accessories;
+    public void clickOnaccessories(){
+        accessories.click();
+    }
+    @FindBy(xpath="/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    WebElement accessoriesdisplay;
+    public boolean checkIfAccessoriesdisplayed(){
+        return accessoriesdisplay.isDisplayed();
     }
 }
