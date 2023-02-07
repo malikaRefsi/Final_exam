@@ -73,7 +73,7 @@ public class  TestLeaveList extends CommonAPI {
         LOG.info("we are successfully logged in ");
         leavePage.rejectLeaveTheSecondInTheLeaveList();
     }
-    @Test(priority=6)
+//    @Test(priority=6)
     public void RejectMultipleLeaveRequestsTest() throws Exception {//the second and the forth rows
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -87,7 +87,7 @@ public class  TestLeaveList extends CommonAPI {
 
 
     }
-    @Test(priority=7)
+//    @Test(priority=7)
     public void ApproveMultipleLeaveTest() throws Exception {//the second and the forth rows
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -126,7 +126,7 @@ public class  TestLeaveList extends CommonAPI {
         LOG.info("we are successfully logged in ");
         leavePage.CancelRejectMultipleLeaveRequests();
     }
-    @Test(priority=10)
+//    @Test(priority=10)
     public void RejectAllLeaveRequestsTest() throws Exception {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());

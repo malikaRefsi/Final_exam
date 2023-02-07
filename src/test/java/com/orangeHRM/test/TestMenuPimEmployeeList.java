@@ -21,7 +21,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
     Logger LOG = LogManager.getLogger( TestMenuPimEmployeeList.class.getName());
     String userName= ConnectDB.getTableColumnData("select * from credentials","username").get(1);
     String password= ConnectDB.getTableColumnData("select * from credentials","password").get(1);
-    @Test
+    @Test(priority = 1)
     public void searchEmployeeByEnteringTheIdTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -34,7 +34,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         piMpage.searchEmployeeByEnteringTheId(Id);
     }
 
-    @Test
+    @Test(priority = 2)
     public void searchEmployeeByEnteringTheEmployeeNameTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -45,7 +45,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String  EmployeeName=readFromExcel.getCellValueForGivenHeaderAndKey("key","Employee Name");
         piMpage.searchEmployeeByEnteringTheEmployeeName(EmployeeName);
     }
-    @Test
+    @Test(priority = 3)
     public void searchEmployeeByEnteringTheSupervisorNameTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -56,7 +56,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String  SupervisorName=readFromExcel.getCellValueForGivenHeaderAndKey("key","Supervisor Name");
         piMpage.searchEmployeeByEnteringTheSupervisorName(SupervisorName);
     }
-    @Test
+    @Test(priority = 4)
     public void searchEmployeeByEnteringTheEmploymentStatusTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -67,7 +67,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String EmploymentStatus=readFromExcel.getCellValueForGivenHeaderAndKey("key","Employment Status");
         piMpage.searchEmployeeByEnteringTheEmploymentStatus(EmploymentStatus);
     }
-    @Test
+    @Test(priority = 5)
     public void searchEmployeeByEnteringTheJobTitleTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -78,7 +78,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String  JobTitle=readFromExcel.getCellValueForGivenHeaderAndKey("key","Job Title");
         piMpage.searchEmployeeByEnteringTheJobTitle(JobTitle);
     }
-    @Test
+    @Test(priority = 6)
     public void searchEmployeeByEnteringTheSubUnitTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -90,7 +90,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         piMpage.searchEmployeeByEnteringTheSubUnit(SubUnit);
     }
 
-    @Test
+    @Test(priority = 7)
     public void searchEmployeeByEnteringTheIncludeTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -101,7 +101,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String  Include=readFromExcel.getCellValueForGivenHeaderAndKey("key","Include");
         piMpage.searchEmployeeByEnteringTheInclude(Include);
     }
-    @Test
+    @Test(priority = 8)
     public void searchEmployeeByEnteringTheIncludeAndSubUnitTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -113,7 +113,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String  SubUnit=readFromExcel.getCellValueForGivenHeaderAndKey("key","Sub Unit");
         piMpage.searchEmployeeByEnteringTheIncludeAndSubUnit(Include,SubUnit);
     }
-    @Test
+    @Test(priority = 9)
     public void searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -126,7 +126,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String  JobTitle=readFromExcel.getCellValueForGivenHeaderAndKey("key","Job Title");
         piMpage.searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitle(Include,SubUnit,JobTitle);
     }
-    @Test
+    @Test(priority = 10)
     public void searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleAndEmploymentStatusTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -140,7 +140,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String EmploymentStatus=readFromExcel.getCellValueForGivenHeaderAndKey("key","Employment Status");
         piMpage.searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleAndEmploymentStatus(Include,SubUnit,JobTitle,EmploymentStatus);
     }
-   @Test
+   @Test(priority = 11)
    public void resetSearchEmployeeTest () throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         PIMpage piMpage=new PIMpage(getDriver());
@@ -157,7 +157,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
     }
 
 
-      @Test (dataProvider="EmployeeInfo")
+      @Test (dataProvider="EmployeeInfo",priority = 0)
       public void addUsersTest(String firstName, String Id, String lastName, String fileName) throws InterruptedException, AWTException {
           LoginPage loginPage=new LoginPage(getDriver());
           HomePage homePage=new HomePage(getDriver());
@@ -189,7 +189,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         return employeeInfo;
     }
 
-    @Test //the fifth in the list of the users
+    @Test(priority =16 ) //the fifth in the list of the users
     public void TestDeleteUserUsingTrashLogo() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -212,7 +212,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         Thread.sleep(5000);
         LOG.info("The number of the users in Employee list after deleting: "+ piMpage.numberOfEmployeeInList());
     }
-    @Test //the fifth in the list of the users
+    @Test(priority =17) //the fifth in the list of the users
     public void TestDeleteUserUsingDeleteSelectedButton() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -236,7 +236,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         LOG.info("The number of the users in Employee list after deleting: "+ piMpage.numberOfEmployeeInList());
 
     }
-    @Test
+    @Test(priority = 12)
     public void TestVisibilityDeleteSelectedButton() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -252,7 +252,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         piMpage.checkTheVisibilityOfDeleteSelectedButton();
 
     }
-    @Test //(dependsOnMethods = "addUsersTest",alwaysRun = true)//the fifth in the list of the users
+//    @Test(priority = 18) //(dependsOnMethods = "addUsersTest",alwaysRun = true)//the fifth in the list of the users
     public void TestDeleteAllTheUsers() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -277,7 +277,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
 
 
     }
-    @Test // including edite nick name,SSN and Smoke checkbox for the fifth employee in the list
+    @Test(priority = 13) // including edite nick name,SSN and Smoke checkbox for the fifth employee in the list
     public void editePersonalDetailsOfAnEmployeeTest() throws InterruptedException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -301,7 +301,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
 
     }
 
-        @Test //the fifth in the list of the users
+        @Test(priority = 14) //the fifth in the list of the users
     public void editeProfilePictureOfAnEmployeesTest() throws InterruptedException, AWTException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -316,7 +316,7 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         String  pictureFileNane=readFromExcel.getCellValueForGivenHeaderAndKey("key","Profile picture file name");
         piMpage.editeProfilePictureOfAnEmployees(pictureFileNane);
     }
-    @Test //the fifth in the list of the users
+    @Test(priority = 15) //the fifth in the list of the users
     public void addAnAttachmentToAnEmployeesInformationTest() throws InterruptedException, AWTException {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());

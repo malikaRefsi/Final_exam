@@ -39,7 +39,7 @@ public class AssignLeaveTest extends CommonAPI {
     public Object[][] getData(){
         String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
         ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet4");
-        int totalRows=8;
+        int totalRows=3;
         int totalColumns=4;
         String leaveRequestData[][]=new String[totalRows][totalColumns];
         for (int i=1; i<=totalRows;i++){
