@@ -3,7 +3,7 @@
 <suite name="orangeHRM tests">
     <parameter name="browserName" value="chrome"></parameter>
 
-    <parameter name="useCloudEnv" value="false"></parameter>
+    <parameter name="useCloudEnv" value="true"></parameter>
     <parameter name="os" value="windows"></parameter>
     <parameter name="osVersion" value="11"></parameter>
     <parameter name="browserVersion" value="100"></parameter>
@@ -27,38 +27,38 @@
 <!--            </run>-->
 <!--        </groups>-->
         <classes>
-<!--                            <class name="com.orangeHRM.test.TestLogin"></class>-->
-<!--            <class name="com.orangehrm.test.TestMenuPimEmployeeList">-->
-<!--                <methods>-->
+                            <class name="com.orangeHRM.test.TestLogin"></class>
+            <class name="com.orangeHRM.test.TestMenuPimEmployeeList">
+                <methods>
 <!--                    <include name="addUsersTest"/>-->
-<!--                    <include name="searchEmployeeByEnteringTheIdTest"/>-->
-<!--                    <include name="searchEmployeeByEnteringTheEmployeeNameTest"/>-->
-<!--                    <include name="searchEmployeeByEnteringTheSupervisorNameTest"/>-->
-<!--                    <include name="searchEmployeeByEnteringTheEmploymentStatusTest"/>-->
-<!--                    <include name="searchEmployeeByEnteringTheJobTitleTest"/>-->
-<!--                    <include name="searchEmployeeByEnteringTheSubUnitTest"/>-->
-<!--                    <include name="searchEmployeeByEnteringTheIncludeTest"/>-->
-<!--                    <include name="searchEmployeeByEnteringTheIncludeAndSubUnitTest"/>-->
-<!--                    <include name="searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleTest"/>-->
-<!--                    <include name="searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleAndEmploymentStatusTest"/>-->
-<!--                    <include name="resetSearchEmployeeTest"/>-->
-<!--                    <include name="TestVisibilityDeleteSelectedButton"/>-->
-<!--                    <include name="editePersonalDetailsOfAnEmployeeTest"/>-->
-<!--                    <include name="editeProfilePictureOfAnEmployeesTest"/>-->
-<!--                    <include name="addAnAttachmentToAnEmployeesInformationTest"/>-->
-<!--                    <include name="TestDeleteUserUsingTrashLogo"/>-->
-<!--                    <include name="TestDeleteUserUsingDeleteSelectedButton"/>-->
-<!--                    <include name="addUsersTest"/>-->
-<!--                    <include name="TestDeleteAllTheUsers"/>-->
-<!--                </methods>-->
+                    <include name="searchEmployeeByEnteringTheIdTest"/>
+                    <include name="searchEmployeeByEnteringTheEmployeeNameTest"/>
+                    <include name="searchEmployeeByEnteringTheSupervisorNameTest"/>
+                    <include name="searchEmployeeByEnteringTheEmploymentStatusTest"/>
+                    <include name="searchEmployeeByEnteringTheJobTitleTest"/>
+                    <include name="searchEmployeeByEnteringTheSubUnitTest"/>
+                    <include name="searchEmployeeByEnteringTheIncludeTest"/>
+                    <include name="searchEmployeeByEnteringTheIncludeAndSubUnitTest"/>
+                    <include name="searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleTest"/>
+                    <include name="searchEmployeeByEnteringTheIncludeAndSubUnitAndJobTitleAndEmploymentStatusTest"/>
+                    <include name="resetSearchEmployeeTest"/>
+                    <include name="TestVisibilityDeleteSelectedButton"/>
+                    <include name="editePersonalDetailsOfAnEmployeeTest"/>
+                    <include name="editeProfilePictureOfAnEmployeesTest"/>
+                    <include name="addAnAttachmentToAnEmployeesInformationTest"/>
+                    <include name="TestDeleteUserUsingTrashLogo"/>
+                    <include name="TestDeleteUserUsingDeleteSelectedButton"/>
+                    <include name="addUsersTest"/>
+                    <include name="TestDeleteAllTheUsers"/>
+                </methods>
 
-<!--            </class>-->
-<!--            <class name="com.orangeHRM.test.TestMenuAdminNationality">-->
+            </class>
+            <class name="com.orangeHRM.test.TestMenuAdminNationality">
 <!--                <methods>-->
 <!--                    <include name="TestDeleteNationalityUsingUsingDeleteSelectedButton"/>-->
 <!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="com.orangeHRM.test.TestLogOut"></class>-->
+            </class>
+            <class name="com.orangeHRM.test.TestLogOut"></class>
 
             <class name="com.orangeHRM.test.TestLeaveList">
 <!--                <methods>-->
@@ -67,11 +67,11 @@
 
 <!--                </methods>-->
             </class>
-
-<!--            <class name="com.orangeHRM.test.TestTimeTimeSheets"></class>-->
-<!--            <class name="com.orangeHRM.test.TestAttendanceConfiguration"></class>-->
-<!--            <class name="com.orangeHRM.test.TestAdminJobMenu"></class>-->
-<!--            <class name="com.orangeHRM.test.TestTimeProjectInfo"></class>-->
+            <class name="com.orangeHRM.test.AssignLeaveTest"></class>
+            <class name="com.orangeHRM.test.TestTimeTimeSheets"></class>
+            <class name="com.orangeHRM.test.TestAttendanceConfiguration"></class>
+            <class name="com.orangeHRM.test.TestAdminJobMenu"></class>
+            <class name="com.orangeHRM.test.TestTimeProjectInfo"></class>
 
 
 
