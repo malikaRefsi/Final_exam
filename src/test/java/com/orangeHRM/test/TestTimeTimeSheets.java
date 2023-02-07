@@ -3,7 +3,6 @@ package com.orangeHRM.test;
 import base.CommonAPI;
 import com.orangeHRM.pages.HomePage;
 import com.orangeHRM.pages.LoginPage;
-import com.orangeHRM.pages.PIMpage;
 import com.orangeHRM.pages.TimePage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -12,6 +12,7 @@
         <classes>
 
 
+
             <class name="com.nopcommerce.test.TestRegistration"></class>
             <class name="com.nopcommerce.test.LoginTestNop"></class>
             <class name="com.nopcommerce.test.ResetPassword"></class>
@@ -27,6 +28,7 @@
             <class name="com.nopcommerce.test.LogOutNopTest"></class>
             <class name="com.nopcommerce.test.RemoveAnItem"></class>
             <class name="com.nopcommerce.test.DifferentMenu"></class>
+
         </classes>
     </test>
 </suite>

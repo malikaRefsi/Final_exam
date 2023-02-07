@@ -183,10 +183,10 @@ public class AdminPage extends CommonAPI {
         clickOn(yesDeleteConfirmation);
         Thread.sleep(2000);
         Assert.assertEquals(getTextFromElement(toastMessage),"Successfully Deleted");
-        LOG.info("we are successfully deleted a nationality");
+        LOG.info("we are successfully deleted all the nationality in the current slide");
         Thread.sleep(2000);
 
-        LOG.info("After deleting a nationality: "+getTextFromElement(recordsFound));
+        LOG.info("And in the next slide there are : "+getTextFromElement(recordsFound)+" of nationalities");
 
     }
     public void editeANationalityInTheRowFive(WebDriver driver,String str) throws InterruptedException {

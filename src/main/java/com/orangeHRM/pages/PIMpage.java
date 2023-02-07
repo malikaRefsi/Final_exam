@@ -101,17 +101,46 @@ public class PIMpage extends CommonAPI {
 
 
 
+    @FindBy(xpath = "(//img[@alt='profile picture'])[2]")
+    WebElement profilePicture;
+    @FindBy(xpath = "//i[@class='oxd-icon bi-plus']")
+    WebElement plusLink;
+    @FindBy(xpath = "//button[@type='submit']")
+    WebElement savePictureButton;
+    @FindBy(xpath = "(//button[@type='submit'])[3]")
+    WebElement saveAttachmentButton;
+    @FindBy(xpath = "(//i[@class='oxd-icon bi-plus oxd-button-icon'])[1]")
+    WebElement addAttachmentsButton;
+    @FindBy(xpath = "(//div[@class='oxd-file-button'])[1]")
+    WebElement browsButton;
+    @FindBy(xpath = "//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message']")
+    WebElement messageUnderIdTypeField;
 
 
 
     //reusable steps
 
 
-    public void addUser(String firstName,String lastName){
+    public void addUser(String firstName,String lastName,String fileName,WebDriver driver,String Id) throws InterruptedException, AWTException {
         clickOn(addButton);
+        clickOn(plusLink);
+        uploadProfilePicture(fileName);
+        Thread.sleep(3000);
+        clearTextInTextBoxFieldUsingActionClass(driver, IdField);
         typeText(firstNameField,firstName);
         typeText(lastNameField,lastName);
+
+//        typeTextUsingJavaScript(driver,IdField,Id);
+        typeText(IdField,Id);
+        try {
+            Assert.assertEquals(getTextFromElement(messageUnderIdTypeField),"Employee Id already exists");
+            LOG.info("Employee Id already exists");
+        }catch (Exception e) {
         clickOn(saveButton);
+        Thread.sleep(2000);
+        Assert.assertEquals(getTextFromElement(toastMessageAfterAddUser),"Successfully Saved");
+        LOG.info("we successfully added a new employee to the existing list");
+        Thread.sleep(12000);}
     }
     public String getHeaderWhenPIMSelected(){
         return getTextFromElement(PIMAsHeader);
@@ -145,9 +174,10 @@ public class PIMpage extends CommonAPI {
         }else {LOG.info("the Delete Selected button is not visible even after selecting any user from employee list");}
 
     }
-    public void deleteAllUserInEmployeeList(WebDriver driver){
+    public void deleteAllUserInEmployeeList(WebDriver driver) throws InterruptedException {
         clickOn(checkboxOnTheHeaderOfEmployeeList);
         clickOn(deleteSelectedButton);
+        Thread.sleep(3000);
         Assert.assertEquals(getTextFromElement(textInTheDeleteDialogBox),"The selected record will be permanently deleted. Are you sure you want to continue?");
         LOG.info("we are successfully switched to delete confirmation or cancel delete dialogue box");
         clickOn(yesDeleteConfirmation);
@@ -174,18 +204,6 @@ public class PIMpage extends CommonAPI {
 
 
     }
-    @FindBy(xpath = "(//img[@alt='profile picture'])[2]")
-    WebElement profilePicture;
-    @FindBy(xpath = "//i[@class='oxd-icon bi-plus']")
-    WebElement plusLink;
-    @FindBy(xpath = "//button[@type='submit']")
-    WebElement savePictureButton;
-    @FindBy(xpath = "(//button[@type='submit'])[3]")
-    WebElement saveAttachmentButton;
-    @FindBy(xpath = "(//i[@class='oxd-icon bi-plus oxd-button-icon'])[1]")
-    WebElement addAttachmentsButton;
-    @FindBy(xpath = "(//div[@class='oxd-file-button'])[1]")
-    WebElement browsButton;
 
 
     public void addAnAttachmentToAnEmployeesInformation(String fileName) throws InterruptedException, AWTException {

@@ -11,12 +11,11 @@ import org.openqa.selenium.support.PageFactory;
 public class CartPage extends CommonAPI {
     Logger LOG = LogManager.getLogger(HomePageF.class.getName());
 
-    // Logger LOG = LogManager.getLogger(HomePage.class.getName());
     public CartPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    //01
+
     //LabsBackup
     @FindBy(css = "#add-to-cart-sauce-labs-backpack")
     WebElement addBackUp;
@@ -28,14 +27,7 @@ public class CartPage extends CommonAPI {
     @FindBy(css = "#add-to-cart-sauce-labs-fleece-jacket")
     WebElement addFleeceJacket;
 
-
-
-
-
     @FindBy(css = "#shopping_cart_container")
-    //"//span[@class='shopping_cart_badge']
-    //@FindBy(xpath = "#shopping_cart_container")
-
     WebElement shoppingCart;
 
     @FindBy(css = "#remove-sauce-labs-backpack")
@@ -77,13 +69,15 @@ public class CartPage extends CommonAPI {
     @FindBy(xpath = "//div[text()='DESCRIPTION']")
     WebElement Description;
 
+    @FindBy(xpath = "//span[text()='4']")
+    WebElement num4;
+    @FindBy(xpath = "//span[text()='1']")
+    WebElement num1;
     @FindBy(xpath = "//span[text()='Checkout: Your Information']")
     WebElement checkOutYourInformations;
 
     @FindBy(xpath = "//span[text()='Checkout: Overview']")
     WebElement checkOutOverview;
-
-
 
     public void clickOnAddItem1() {
         clickOn(addBackUp);
@@ -169,6 +163,16 @@ public class CartPage extends CommonAPI {
         return checkIfElementIsDisplayed(QTY);
 
     }
+    public boolean checkIfNum4IsDisplayed() {
+        return checkIfElementIsDisplayed(num4);
+
+    }
+    public boolean checkIfNum1yIsDisplayed() {
+        return checkIfElementIsDisplayed(num1);
+
+    }
+
+
     public boolean checkIfCheckOutHeaderIsDisplayed() {
         return checkIfElementIsDisplayed(checkOutYourInformations);
 
