@@ -75,7 +75,7 @@ public Object[][] getData2(){
                     return projectsData;
 }
 
-//    @Test
+    @Test
     public void filterProjectsByGivenCustomerNameTest() throws Exception {
         LoginPage loginPage=new LoginPage(getDriver());
         TimePage timePage=new TimePage(getDriver());
@@ -86,7 +86,7 @@ public Object[][] getData2(){
         timePage.filterProjectsByGivenCustomerName(costumer);
 
     }
-//    @Test
+    @Test
     public void filterProjectsByGivenProjectNameTest() throws Exception {
         LoginPage loginPage=new LoginPage(getDriver());
         TimePage timePage=new TimePage(getDriver());
@@ -97,7 +97,7 @@ public Object[][] getData2(){
         timePage.filterProjectsByGivenProjectName(Project);
 
     }
-//    @Test
+    @Test
     public void filterProjectsByGivenProjectAdminNameTest() throws Exception {
         LoginPage loginPage=new LoginPage(getDriver());
         TimePage timePage=new TimePage(getDriver());
@@ -108,7 +108,7 @@ public Object[][] getData2(){
         timePage.filterProjectsByGivenProjectAdminName(ProjectAdminName);
 
     }
-//    @Test
+    @Test
     public void filterProjectsByGivenProjectAdminAndProjectNameTest() throws Exception {
         LoginPage loginPage=new LoginPage(getDriver());
         TimePage timePage=new TimePage(getDriver());
@@ -120,7 +120,7 @@ public Object[][] getData2(){
         timePage.filterProjectsByGivenProjectAdminAndProjectName(Project,ProjectAdminName);
 
     }
-//    @Test
+   @Test
     public void filterProjectsByGivenProjectAdminAndProjectAndCostumerNameTest() throws Exception {
         LoginPage loginPage=new LoginPage(getDriver());
         TimePage timePage=new TimePage(getDriver());

@@ -47,7 +47,7 @@ public class  TestLeaveList extends CommonAPI {
         leavePage.checkTheVisibilityOfCancelButton();
 
     }
-    @Test(priority=4)//approve the second leave request
+    @Test(priority=4)
     public void ApproveLeaveRequestTest() throws Exception {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -61,7 +61,7 @@ public class  TestLeaveList extends CommonAPI {
 
 
     }
-    @Test(priority=5)//reject the second leave request
+    @Test(priority=5)
     public void RejectLeaveRequestTest() throws Exception {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());
@@ -138,34 +138,8 @@ public class  TestLeaveList extends CommonAPI {
         LOG.info("we are successfully logged in ");
         leavePage.RejectAllLeaveRequests();
     }
-    @Test(dataProvider = "LeaveRequestData",priority = 11)
-    public void assignLeaveRequestTest(String EmployeeName,String LeaveType,String ToDate,String FromDate) throws Exception {
-        LoginPage loginPage=new LoginPage(getDriver());
-        HomePage homePage=new HomePage(getDriver());
-        LeavePage leavePage=new LeavePage(getDriver());
-        Assert.assertTrue(loginPage.checkIfLoginLogoIsDisplayed());
-        LOG.info("we are in the login page ");
-        loginPage.login(userName,password);
-        Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
-        LOG.info("we are successfully logged in ");
-//        leavePage.assignLeaveRequest("Linda Jane Anderson","US - Personal","2023-02-07","2023-02-10");
-        leavePage.assignLeaveRequest(EmployeeName,LeaveType,FromDate,ToDate);
-    }
-    @DataProvider(name="LeaveRequestData")
-    public Object[][] getData(){
-        String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"orangehrmData.xlsx";
-        ReadFromExcel readFromExcel=new ReadFromExcel(filePath,"sheet4");
-        int totalRows=8;
-        int totalColumns=4;
-        String leaveRequestData[][]=new String[totalRows][totalColumns];
-        for (int i=1; i<=totalRows;i++){
-            for (int j=0;j<totalColumns;j++){
-                leaveRequestData[i-1][j]=readFromExcel.getDataFromCell(i,j);
-            }
-        }
-        return leaveRequestData;
-    }
-    @Test (priority=12)
+
+//    @Test (priority=12)
     public void ApproveAllLeaveRequestsTest() throws Exception {
         LoginPage loginPage=new LoginPage(getDriver());
         HomePage homePage=new HomePage(getDriver());

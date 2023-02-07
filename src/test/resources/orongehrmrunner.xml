@@ -62,7 +62,7 @@
 
             <class name="com.orangeHRM.test.TestLeaveList">
 <!--                <methods>-->
-<!--                    <include name="assignLeaveRequestTest"/>-->
+
 <!--                    <include name="RejectAllLeaveRequestsTest"/>-->
 
 <!--                </methods>-->
