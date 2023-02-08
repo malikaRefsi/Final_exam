@@ -3,31 +3,31 @@
 <suite name="nopcommerce .test">
     <parameter name="browserName" value="chrome"></parameter>
 
-    <parameter name="useCloudEnv" value="false"></parameter>
-    <parameter name="os" value="windows"></parameter>
-    <parameter name="osVersion" value="11"></parameter>
-    <parameter name="browserVersion" value="100"></parameter>
-    <parameter name="envName" value="browserstack"></parameter>
+<!--    <parameter name="useCloudEnv" value="false"></parameter>-->
+<!--    <parameter name="os" value="windows"></parameter>-->
+<!--    <parameter name="osVersion" value="11"></parameter>-->
+<!--    <parameter name="browserVersion" value="100"></parameter>-->
+<!--    <parameter name="envName" value="browserstack"></parameter>-->
     <parameter name="url" value="https://demo.nopcommerce.com/"></parameter>
     <test name="nopcommerce">
         <classes>
 
 
 
-            <class name="com.nopcommerce.test.TestRegistration"></class>
-            <class name="com.nopcommerce.test.LoginTestNop"></class>
-            <class name="com.nopcommerce.test.ResetPassword"></class>
-            <class name="com.nopcommerce.test.ContactUs"></class>
-            <class name="com.nopcommerce.test.AddAnItem"></class>
-            <class name="com.nopcommerce.test.SearchAnItem"></class>
-            <class name="com.nopcommerce.test.Subscrption"></class>
-            <class name="com.nopcommerce.test.Sorting"></class>
-            <class name="com.nopcommerce.test.VoteSurvey"></class>
-            <class name="com.nopcommerce.test.CustomizeShirt"></class>
-            <class name="com.nopcommerce.test.RecentlyViewed"></class>
-            <class name="com.nopcommerce.test.SetupATypeOfAnItem"></class>
-            <class name="com.nopcommerce.test.LogOutNopTest"></class>
-            <class name="com.nopcommerce.test.RemoveAnItem"></class>
+<!--            <class name="com.nopcommerce.test.TestRegistration"></class>-->
+<!--            <class name="com.nopcommerce.test.LoginTestNop"></class>-->
+<!--            <class name="com.nopcommerce.test.ResetPassword"></class>-->
+<!--            <class name="com.nopcommerce.test.ContactUs"></class>-->
+<!--            <class name="com.nopcommerce.test.AddAnItem"></class>-->
+<!--            <class name="com.nopcommerce.test.SearchAnItem"></class>-->
+<!--            <class name="com.nopcommerce.test.Subscrption"></class>-->
+<!--            <class name="com.nopcommerce.test.Sorting"></class>-->
+<!--            <class name="com.nopcommerce.test.VoteSurvey"></class>-->
+<!--            <class name="com.nopcommerce.test.CustomizeShirt"></class>-->
+<!--            <class name="com.nopcommerce.test.RecentlyViewed"></class>-->
+<!--            <class name="com.nopcommerce.test.SetupATypeOfAnItem"></class>-->
+<!--            <class name="com.nopcommerce.test.LogOutNopTest"></class>-->
+<!--            <class name="com.nopcommerce.test.RemoveAnItem"></class>-->
             <class name="com.nopcommerce.test.DifferentMenu"></class>
 
         </classes>

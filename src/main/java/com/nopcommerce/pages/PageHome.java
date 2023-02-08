@@ -49,7 +49,7 @@ public class PageHome extends CommonAPI {
 
     }
 
-    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[2]/a")
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div/div[3]/div/div[1]/div")
     WebElement electronicslnk;
 
 
@@ -239,14 +239,14 @@ public class PageHome extends CommonAPI {
         return othersHeader.isDisplayed();
     }
 
-    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[1]")
+    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[2]/li[1]/div")
     WebElement Computerlnk;
 
     public void clickOnComputer() {
         Computerlnk.click();
     }
 
-    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[1]/div/div[1]/div/h2")
+    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[2]/li[1]/ul/li[1]")
     WebElement desktopsoption;
 
     public void clickOnDesktops() {
@@ -260,7 +260,7 @@ public class PageHome extends CommonAPI {
         return desktopsheader.isDisplayed();
     }
 
-    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[2]/li[1]/ul/li[3]/a")
     WebElement software;
 
     public void clickOnSoftware() {
@@ -274,7 +274,7 @@ public class PageHome extends CommonAPI {
         return softwareDisplay.isDisplayed();
     }
 
-    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1")
+    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[2]/li[1]/ul/li[2]/a")
     WebElement notebookoption;
 
     public void clickOnNoteBook() {
@@ -307,7 +307,7 @@ public class PageHome extends CommonAPI {
     public void voteVeryBad() {
         verybad.click();
     }
-    @FindBy(xpath="/html/body/div[6]/div[2]/ul[1]/li[3]/a")
+    @FindBy(xpath="/html/body/div[6]/div[3]/div/div/div/div/div[3]/div/div[2]/div")
     WebElement apparel;
     public void clickOnApparel(){
         apparel.click();
@@ -342,4 +342,8 @@ public class PageHome extends CommonAPI {
     public boolean checkIfAccessoriesdisplayed(){
         return accessoriesdisplay.isDisplayed();
     }
+    @FindBy(xpath="/html/body/div[6]/div[2]/div")
+    WebElement categories;
+    public void clickOnCategories(){
+    categories.click();}
 }
