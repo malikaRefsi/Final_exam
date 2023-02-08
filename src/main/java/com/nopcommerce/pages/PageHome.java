@@ -50,12 +50,12 @@ public class PageHome extends CommonAPI {
     }
 
     @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[2]/a")
-    WebElement electronicsLnk;
+    WebElement electronicslnk;
 
 
     public void selectElectronics() {
 
-        electronicsLnk.click();
+        electronicslnk.click();
         LOG.info("select from dropdown success");
     }
 

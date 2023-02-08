@@ -36,10 +36,10 @@ public class LoginTestNop extends CommonAPI {
         String Pwd = "123zxc";
         String Cpwd = "123zxc";
 
-        RegistrationPage pR = new RegistrationPage(driver);
+        RegistrationPage registrationpage = new RegistrationPage(driver);
         String CDetails = "pnt";
 
-        pR.setTheRegistrationInformation(Fname, Lname, Eadress, Pwd, Cpwd, CDetails);
+       registrationpage.setTheRegistrationInformation(Fname, Lname, Eadress, Pwd, Cpwd, CDetails);
 
 
     }
