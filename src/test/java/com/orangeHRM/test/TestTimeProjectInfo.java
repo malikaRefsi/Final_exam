@@ -75,7 +75,7 @@ public Object[][] getData2(){
                     return projectsData;
 }
 
-    @Test
+    @Test//I tested search functionality
     public void filterProjectsByGivenCustomerNameTest() throws Exception {
         LoginPage loginPage=new LoginPage(getDriver());
         TimePage timePage=new TimePage(getDriver());

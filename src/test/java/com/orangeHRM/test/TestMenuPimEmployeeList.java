@@ -205,11 +205,11 @@ public class TestMenuPimEmployeeList extends CommonAPI {
         LOG.info("The number of the users in Employee list before deleting: "+ piMpage.numberOfEmployeeInList());
         piMpage.deleteAUserInEmployeeListUsingTrashLogo(getDriver());
        // piMpage.getToastMessageAfterDeletingUsers();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         String  messageAfterDeleteUser=readFromExcel.getCellValueForGivenHeaderAndKey("key","Message After deleting a User");
         Assert.assertEquals(piMpage.getToastMessageAfterDeletingUsers(),messageAfterDeleteUser);
         LOG.info("the user successfully deleted using the trash Logo");
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         LOG.info("The number of the users in Employee list after deleting: "+ piMpage.numberOfEmployeeInList());
     }
     @Test(priority =17) //the fifth in the list of the users

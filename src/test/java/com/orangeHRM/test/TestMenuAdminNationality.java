@@ -116,7 +116,8 @@ public class TestMenuAdminNationality extends CommonAPI {
         loginPage.login(userName, password);
         Assert.assertTrue(homePage.checkIfDashBordIsDisplayedAsHeader());
         LOG.info("we are successfully landed in the homepage ");
-        adminPage.editeANationalityInTheRowFive(getDriver(),"French");
+        Faker faker=new Faker();
+        adminPage.editeANationalityInTheRowFive(getDriver(),faker.nation().nationality());
 
     }
 
