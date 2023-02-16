@@ -13,19 +13,19 @@ public class ContactUs extends CommonAPI {
 
     @Test
     public void ContactThem() throws InterruptedException {
-        PageHome hP = new PageHome(getDriver());
-        hP.contactCustomerService();
-        ContactUsPage cP = new ContactUsPage(getDriver());
+        PageHome pagehome = new PageHome(getDriver());
+        pagehome.contactCustomerService();
+        ContactUsPage contactuspage = new ContactUsPage(getDriver());
         String nme = "juba";
         CharSequence email = "juba91@gmail.com ";
         String inquiry = "i didn't get my order , i need a refund!";
-        cP.enterYourName(nme);
-        cP.enterYourEmail(email);
+        contactuspage.enterYourName(nme);
+       contactuspage.enterYourEmail(email);
         Thread.sleep(2000);
-        cP.enterYourInquiry(inquiry);
+        contactuspage.enterYourInquiry(inquiry);
         Thread.sleep(2000);
-        Assert.assertTrue(cP.checkIfContactUsDisplayed());
-        cP.clickOnSubmit();
+        Assert.assertTrue(contactuspage.checkIfContactUsDisplayed());
+        contactuspage.clickOnSubmit();
         Thread.sleep(2000);
     }
 }

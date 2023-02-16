@@ -38,6 +38,7 @@ public class DifferentMenu extends CommonAPI {
     @Test
     public void Desktops() {
         PageHome pagehome = new PageHome(getDriver());
+        pagehome.clickOnCategories();
         pagehome.clickOnComputer();
         pagehome.clickOnDesktops();
         Assert.assertTrue(pagehome.checkIfDesktop());
@@ -46,6 +47,7 @@ public class DifferentMenu extends CommonAPI {
     @Test
     public void Software() {
         PageHome pagehome = new PageHome(getDriver());
+        pagehome.clickOnCategories();
         pagehome.clickOnComputer();
         pagehome.clickOnSoftware();
         Assert.assertTrue(pagehome.checkIfSoftwareIsDisplayed());
@@ -54,6 +56,7 @@ public class DifferentMenu extends CommonAPI {
     @Test
     public void Notebook() {
         PageHome pagehome = new PageHome(getDriver());
+        pagehome.clickOnCategories();
         pagehome.clickOnComputer();
         pagehome.clickOnNoteBook();
         Assert.assertTrue(pagehome.checkIfNoteBookDisplay());
