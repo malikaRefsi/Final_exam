@@ -410,7 +410,7 @@ public class CommonAPI {
         rb.delay(2000);//while the window will open
         // to copy the path of the file in clip bord  for that we will the class
         //same as ctrl+c
-        String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+fileName;
+        String filePath=System.getProperty("user.dir")+ File.separator+"data"+File.separator+"employeesPictures"+File.separator+fileName;
         StringSelection ss=new StringSelection(filePath);//this buffer will point to the filePath
         //we also we need this method
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,null);
