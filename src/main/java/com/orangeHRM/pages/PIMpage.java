@@ -148,16 +148,18 @@ public class PIMpage extends CommonAPI {
     public String getToastMessageAfterAddUser(){
         return getTextFromElement(toastMessageAfterAddUser);
     }
-    public void deleteAUserInEmployeeListUsingTrashLogo(WebDriver driver){
+    public void deleteAUserInEmployeeListUsingTrashLogo(WebDriver driver) throws InterruptedException {
         clickOn(checkboxFifthUserInTheEmployeeList);
         clickOn(trashLogoInTheSameRowAsTheFifthUserInEmployeeList);
+        Thread.sleep(3000);
         Assert.assertEquals(getTextFromElement(textInTheDeleteDialogBox),"The selected record will be permanently deleted. Are you sure you want to continue?");
        LOG.info("we are successfully switched to delete confirmation or cancel delete dialogue box");
         clickOn(yesDeleteConfirmation);
     }
-    public void deleteAUserInEmployeeListUsingDeleteSelectedButton(WebDriver driver){
+    public void deleteAUserInEmployeeListUsingDeleteSelectedButton(WebDriver driver) throws InterruptedException {
         clickOn(checkboxFifthUserInTheEmployeeList);
         clickOn(deleteSelectedButton);
+        Thread.sleep(3000);
         Assert.assertEquals(getTextFromElement(textInTheDeleteDialogBox),"The selected record will be permanently deleted. Are you sure you want to continue?");
         LOG.info("we are successfully switched to delete confirmation or cancel delete dialogue box");
         clickOn(yesDeleteConfirmation);

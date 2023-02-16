@@ -3,10 +3,8 @@ package com.orangeHRM.pages;
 import base.CommonAPI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -33,8 +31,10 @@ public class AdminPage extends CommonAPI {
 
     @FindBy(xpath = "(//input[contains(@class,'oxd-input oxd-input--active')])[2]")
     WebElement nameField;
+
     @FindBy(xpath = "//h6[@class='oxd-text oxd-text--h6 orangehrm-main-title']")
     WebElement slideTitle;
+
 
     @FindBy(xpath = "//h6[text()='Add Nationality']")
     WebElement headerAfterSelectingNationality;
@@ -120,10 +120,10 @@ public class AdminPage extends CommonAPI {
         Assert.assertEquals(getTextFromElement(textInTheDeleteDialogBox),"The selected record will be permanently deleted. Are you sure you want to continue?");
         LOG.info("we are successfully switched to delete confirmation or cancel delete dialogue box");
         clickOn(yesDeleteConfirmation);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Assert.assertEquals(getTextFromElement(toastMessage),"Successfully Deleted");
         LOG.info("we are successfully deleted a nationality");
-        Thread.sleep(2000);
+        Thread.sleep(3000);
 
         LOG.info("After deleting a nationality: "+getTextFromElement(recordsFound));
 
@@ -139,10 +139,10 @@ public class AdminPage extends CommonAPI {
         Assert.assertEquals(getTextFromElement(textInTheDeleteDialogBox),"The selected record will be permanently deleted. Are you sure you want to continue?");
         LOG.info("we are successfully switched to delete confirmation or cancel delete dialogue box");
         clickOn(yesDeleteConfirmation);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Assert.assertEquals(getTextFromElement(toastMessage),"Successfully Deleted");
         LOG.info("we are successfully deleted a nationality");
-        Thread.sleep(2000);
+        Thread.sleep(3000);
 
         LOG.info("After deleting a nationality: "+getTextFromElement(recordsFound));
 
@@ -189,7 +189,12 @@ public class AdminPage extends CommonAPI {
         LOG.info("And in the next slide there are : "+getTextFromElement(recordsFound)+" of nationalities");
 
     }
-    public void editeANationalityInTheRowFive(WebDriver driver,String str) throws InterruptedException {
+    @FindBy(xpath = "//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message']")
+    WebElement messageUnderNameTypeField;
+
+
+    public void editeANationalityInTheRowFive(WebDriver driver,String str) throws InterruptedException
+    {
         clickOn(menuAdmin);
         clickOn(menuAdminNationalities);
         Assert.assertEquals(getTextFromElement(slideTitle),"Nationalities");
@@ -199,20 +204,22 @@ public class AdminPage extends CommonAPI {
         Thread.sleep(1000);
         Assert.assertEquals(getTextFromElement(TitleOfEditeNationalityDialogueBox),"Edit Nationality");
         LOG.info("we are successfully switched to edite nationality dialogue page");
-        clearTextInTextBoxField(nameField);
-        Thread.sleep(3000);
-//        typeTextUsingJavaScript(driver,nameField,str);
-        JavascriptExecutor js=(JavascriptExecutor) driver;
-        js.executeScript("arguments[0].value="+str,nameField);
+        LOG.info(nameField.isDisplayed());
+        Actions ac=new Actions(driver);
+        ac.moveToElement(nameField).doubleClick().click().sendKeys(str).build().perform();
+        try {
+            Assert.assertEquals(getTextFromElement(messageUnderNameTypeField),"Already exists");
+            LOG.info("Nationality already exists");
+        }catch (Exception e) {
 
-        Thread.sleep(2000);
-        clickOn(saveButton);
-        Thread.sleep(2000);
-        Assert.assertEquals(getTextFromElement(toastMessage),"Successfully Updated");
-        LOG.info("we are successfully edited a nationality");
-        Thread.sleep(2000);
+            clickOn(saveButton);
+            Thread.sleep(2000);
+            Assert.assertEquals(getTextFromElement(toastMessage), "Successfully Updated");
+            LOG.info("we are successfully edited a nationality");
+            Thread.sleep(2000);
 
-        LOG.info("After editing a nationality: "+getTextFromElement(recordsFound));
+            LOG.info("After editing a nationality: " + getTextFromElement(recordsFound));
+        }
 
     }
     public void cancelAddingNationality(String str) throws InterruptedException {
