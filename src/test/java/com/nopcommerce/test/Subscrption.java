@@ -13,12 +13,12 @@ public class Subscrption extends CommonAPI {
     @Test
     public void Subscrption() throws InterruptedException {
 
-PageHome pH= new PageHome(getDriver());
-String Email="juba91@gmail.com";
-pH.enterEmail(Email);
-pH.clickOnSub();
-LOG.info("subscription successfully");
-}
+        PageHome pagehome= new PageHome(getDriver());
+        String Email="juba91@gmail.com";
+        pagehome.enterEmail(Email);
+        pagehome.clickOnSub();
+        LOG.info("subscription successfully");
+    }
 
 
 }

@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="nopcommerce .test">
-    <parameter name="browserName" value="chrome"></parameter>
+<!--    <parameter name="browserName" value="chrome"></parameter>-->
+
+<!--    <parameter name="useCloudEnv" value="false"></parameter>-->
+<!--    <parameter name="os" value="windows"></parameter>-->
+<!--    <parameter name="osVersion" value="11"></parameter>-->
+<!--    <parameter name="browserVersion" value="100"></parameter>-->
+<!--    <parameter name="envName" value="browserstack"></parameter>-->
     <parameter name="url" value="https://demo.nopcommerce.com/"></parameter>
     <test name="nopcommerce">
         <classes>
+
 
 
 <!--            <class name="com.nopcommerce.test.TestRegistration"></class>-->
@@ -22,7 +29,8 @@
 <!--            <class name="com.nopcommerce.test.VoteSurvey"></class>-->
 <!--               <class name="com.nopcommerce.test.RentAnItem"></class>-->
 
-<!--            <class name="com.nopcommerce.test.ChangeCurrency"></class>-->
+
+           
         </classes>
     </test>
 </suite>

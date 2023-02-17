@@ -50,6 +50,26 @@ public class ItemPage extends CommonAPI {
     public void setCellPhonesLnk(){
         clickOn(cellPhonesLnk);}
 
+    @FindBy(xpath= "//*[@id=\"product_attribute_9\"]/option[3]" )
+    WebElement sizelnk;
+
+    public void clickadidassize(){
+        clickOn(sizelnk);}
+    @FindBy(xpath= "/html/body/div[6]/div[3]/div/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[2]/div/div[2]/h2" )
+    WebElement adidaslnk;
+
+    public void clickadidaslnk(){
+        clickOn(adidaslnk);}
+    @FindBy(xpath= "//*[@id=\"color-squares-10\"]/li[2]/label/span/span")
+    WebElement colorlnk;
+
+    public void clickadidascolor(){
+        clickOn(colorlnk);}
+@FindBy(xpath="//*[@id=\"add-to-cart-button-25\"]")
+    WebElement addadidas;
+    public void clickaddadidas(){
+        clickOn(addadidas);
+    }
 }
 
 

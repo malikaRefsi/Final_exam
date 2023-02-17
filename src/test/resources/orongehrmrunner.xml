@@ -5,7 +5,7 @@
 
     <parameter name="useCloudEnv" value="false"></parameter>
     <parameter name="os" value="windows"></parameter>
-    <parameter name="osVersion" value="11"></parameter>
+    <parameter name="osVersion" value="10"></parameter>
     <parameter name="browserVersion" value="100"></parameter>
     <parameter name="envName" value="browserstack"></parameter>
 
@@ -28,9 +28,9 @@
 <!--        </groups>-->
         <classes>
 <!--                            <class name="com.orangeHRM.test.TestLogin"></class>-->
-<!--            <class name="com.orangehrm.test.TestMenuPimEmployeeList">-->
-<!--                <methods>-->
-<!--                    <include name="addUsersTest"/>-->
+            <class name="com.orangeHRM.test.TestMenuPimEmployeeList">
+                <methods>
+                    <include name="addUsersTest"/>
 <!--                    <include name="searchEmployeeByEnteringTheIdTest"/>-->
 <!--                    <include name="searchEmployeeByEnteringTheEmployeeNameTest"/>-->
 <!--                    <include name="searchEmployeeByEnteringTheSupervisorNameTest"/>-->
@@ -50,23 +50,26 @@
 <!--                    <include name="TestDeleteUserUsingDeleteSelectedButton"/>-->
 <!--                    <include name="addUsersTest"/>-->
 <!--                    <include name="TestDeleteAllTheUsers"/>-->
-<!--                </methods>-->
+                </methods>
 
-<!--            </class>-->
+            </class>
 <!--            <class name="com.orangeHRM.test.TestMenuAdminNationality">-->
 <!--                <methods>-->
+<!--                    <include name="TestDeleteNationalityUsingTrashLogo"/>-->
 <!--                    <include name="TestDeleteNationalityUsingUsingDeleteSelectedButton"/>-->
+<!--                    <include name="TestEditeNationality"/>-->
 <!--                </methods>-->
 <!--            </class>-->
 <!--            <class name="com.orangeHRM.test.TestLogOut"></class>-->
 
 <!--            <class name="com.orangeHRM.test.TestLeaveList">-->
 <!--                <methods>-->
-<!--                    <include name="assignLeaveRequestTest"/>-->
 <!--                    <include name="RejectAllLeaveRequestsTest"/>-->
 
 <!--                </methods>-->
 <!--            </class>-->
+
+<!--            <class name="com.orangeHRM.test.AssignLeaveTest"></class>-->
 
 <!--            <class name="com.orangeHRM.test.TestTimeTimeSheets"></class>-->
 <!--            <class name="com.orangeHRM.test.TestAttendanceConfiguration"></class>-->
@@ -79,15 +82,3 @@
         </classes>
     </test>
 </suite>
-        <!--<?xml version="1.0" encoding="UTF-8"?>-->
-        <!--<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">-->
-        <!--<suite name="suite">-->
-        <!--    <suite-files>-->
-        <!--        <suite-file path="resources/orongeHRMrunner.xml "></suite-file>-->
-        <!--        <suite-file path="resources/nopcommerce.xml "></suite-file>-->
-        <!--        -->
-        <!--    &lt;!&ndash;                        <suiteXmlFile>src/test/resources/saucedemorunner.xml</suiteXmlFile>&ndash;&gt;-->
-
-        <!--</suite-files>-->
-        <!--    -->
-        <!--</suite>-->
