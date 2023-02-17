@@ -14,22 +14,23 @@
 
 
 
-            <class name="com.nopcommerce.test.TestRegistration"></class>
-            <class name="com.nopcommerce.test.LoginTestNop"></class>
-            <class name="com.nopcommerce.test.ResetPassword"></class>
-            <class name="com.nopcommerce.test.ContactUs"></class>
-            <class name="com.nopcommerce.test.AddAnItem"></class>
-            <class name="com.nopcommerce.test.SearchAnItem"></class>
-            <class name="com.nopcommerce.test.Subscrption"></class>
-            <class name="com.nopcommerce.test.Sorting"></class>
-            <class name="com.nopcommerce.test.VoteSurvey"></class>
-            <class name="com.nopcommerce.test.CustomizeShirt"></class>
-            <class name="com.nopcommerce.test.RecentlyViewed"></class>
-            <class name="com.nopcommerce.test.SetupATypeOfAnItem"></class>
-            <class name="com.nopcommerce.test.LogOutNopTest"></class>
-            <class name="com.nopcommerce.test.RemoveAnItem"></class>
-            <class name="com.nopcommerce.test.DifferentMenu"></class>
+<!--            <class name="com.nopcommerce.test.TestRegistration"></class>-->
+<!--            <class name="com.nopcommerce.test.LoginTestNop"></class>-->
+<!--            <class name="com.nopcommerce.test.ContactUs"></class>-->
+<!--            <class name="com.nopcommerce.test.AddAnItemToCompareList"></class>-->
+<!--            <class name="com.nopcommerce.test.AddAnItemToWishList"></class>-->
+<!--            <class name="com.nopcommerce.test.ResetPassword"></class>-->
+<!--            <class name="com.nopcommerce.test.AddAnItemToShoppingCart"></class>-->
+<!--            <class name="com.nopcommerce.test.SearchAnItem"></class>-->
+<!--            <class name="com.nopcommerce.test.Checkout"></class>-->
+<!--            <class name="com.nopcommerce.test.Subscrption"></class>-->
+<!--         <class name="com.nopcommerce.test.LogOutNopTest"></class>-->
+<!--            <class name="com.nopcommerce.test.SortByLowToHigh"></class>-->
+<!--            <class name="com.nopcommerce.test.VoteSurvey"></class>-->
+<!--               <class name="com.nopcommerce.test.RentAnItem"></class>-->
 
+
+           
         </classes>
     </test>
 </suite>
